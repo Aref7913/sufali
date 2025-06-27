@@ -1,35 +1,71 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
+
 body {
-  font-family: sans-serif;
-  background: #fffaf4;
-  color: #333;
-  margin: 0;
-  padding: 20px;
+    font-family: 'Vazirmatn', sans-serif;
+    background: #fefcf8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    direction: rtl;
+    text-align: center;
 }
+
 header {
-  text-align: center;
-  margin-bottom: 30px;
+    background: #d4a373;
+    color: white;
+    padding: 1rem;
 }
+
+header h1 {
+    margin: 0.5rem 0;
+}
+
+nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    gap: 1.5rem;
+}
+
 .product {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 400px;
-  margin: auto;
-  text-align: center;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: #fff3e0;
+    border: 1px solid #e0c097;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 220px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
+
 .product img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 12px;
+    width: 100%;
+    border-radius: 6px;
 }
+
+.product h3 {
+    margin: 0.5rem 0 0.2rem;
+}
+
 .product a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background: #da9c76;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.4rem 1rem;
+    background: #bc6c25;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+footer {
+    background: #eee;
+    padding: 1rem;
+    font-size: 0.9rem;
 }
