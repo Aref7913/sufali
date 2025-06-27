@@ -8,21 +8,8 @@
 </head>
 <body>
   <header><h1>سبد خرید شما</h1></header>
-  <section id="cart-items"></section>
-  <p id="total-price"></p>
-
-  <script>
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const container = document.getElementById("cart-items");
-    const totalEl = document.getElementById("total-price");
-    let total = 0;
-    cart.forEach(item => {
-      const el = document.createElement("div");
-      el.textContent = `${item.name} - ${item.price} تومان`;
-      container.appendChild(el);
-      total += item.price;
-    });
-    totalEl.textContent = `مجموع: ${total} تومان`;
-  </script>
+  <main>
+    <p>در حال حاضر سبد خرید شما خالی است.</p>
+  </main>
 </body>
 </html>
