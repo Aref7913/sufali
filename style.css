@@ -132,3 +132,23 @@ body {
   background: linear-gradient(to bottom right, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
   transform: rotate(30deg);
 }
+/* استایل پارالاکس */
+.parallax {
+  background-image: url('bg.jpg'); /* اسم عکس خودتون رو اینجا بذارین */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px; /* ارتفاع رو می‌تونین کم یا زیاد کنین */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.parallax-content {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+}
