@@ -1,65 +1,9 @@
 
-@font-face {
-    font-family: 'Shabnam';
-    src: url('fonts/Shabnam.woff2') format('woff2');
-}
-body {
-    font-family: 'Shabnam', sans-serif;
-    direction: rtl;
-    background: #fefcf8;
-    margin: 0;
-    padding: 0;
-    color: #333;
-    text-align: center;
-}
-header {
-    background: #d4a373;
-    color: white;
-    padding: 1rem;
-}
-nav a {
-    margin: 0 1rem;
-    color: white;
-    text-decoration: none;
-}
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-}
-.product {
-    background: #fff3e0;
-    border: 1px solid #e0c097;
-    border-radius: 12px;
-    padding: 1rem;
-    width: 200px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.product:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-.product img {
-    width: 100%;
-    border-radius: 8px;
-}
-.product a {
-    background: #bc6c25;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    text-decoration: none;
-}
-footer {
-    margin-top: 2rem;
-    padding: 1rem;
-    background: #eee;
-}
-.product-image {
-    max-width: 300px;
-    margin: 1rem auto;
-    display: block;
-    border-radius: 10px;
-}
+body { font-family: sans-serif; background: #fffaf5; color: #333; margin: 0; padding: 0; }
+header { background: #b07b56; color: white; padding: 1rem; text-align: center; }
+nav a { color: white; margin: 0 0.5rem; text-decoration: none; }
+.hero { background: #fbe8d3; padding: 2rem; text-align: center; }
+.features { display: flex; justify-content: center; gap: 1rem; margin: 1rem; }
+.features div { background: #eee; padding: 1rem; border-radius: 10px; }
+.product-card { display: inline-block; margin: 1rem; padding: 1rem; border: 1px solid #ccc; border-radius: 10px; }
+footer { background: #b07b56; color: white; padding: 1rem; text-align: center; margin-top: 2rem; }
