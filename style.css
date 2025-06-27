@@ -1,71 +1,65 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
-
+@font-face {
+    font-family: 'Shabnam';
+    src: url('fonts/Shabnam.woff2') format('woff2');
+}
 body {
-    font-family: 'Vazirmatn', sans-serif;
+    font-family: 'Shabnam', sans-serif;
+    direction: rtl;
     background: #fefcf8;
     margin: 0;
     padding: 0;
     color: #333;
-    direction: rtl;
     text-align: center;
 }
-
 header {
     background: #d4a373;
     color: white;
     padding: 1rem;
 }
-
-header h1 {
-    margin: 0.5rem 0;
-}
-
 nav a {
     margin: 0 1rem;
     color: white;
     text-decoration: none;
-    font-weight: bold;
 }
-
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 2rem;
-    gap: 1.5rem;
+    gap: 1rem;
+    padding: 1rem;
 }
-
 .product {
     background: #fff3e0;
     border: 1px solid #e0c097;
-    border-radius: 8px;
+    border-radius: 12px;
     padding: 1rem;
-    width: 220px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 .product img {
     width: 100%;
-    border-radius: 6px;
+    border-radius: 8px;
 }
-
-.product h3 {
-    margin: 0.5rem 0 0.2rem;
-}
-
 .product a {
-    display: inline-block;
-    margin-top: 0.5rem;
-    padding: 0.4rem 1rem;
     background: #bc6c25;
     color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
     text-decoration: none;
-    border-radius: 5px;
 }
-
 footer {
-    background: #eee;
+    margin-top: 2rem;
     padding: 1rem;
-    font-size: 0.9rem;
+    background: #eee;
+}
+.product-image {
+    max-width: 300px;
+    margin: 1rem auto;
+    display: block;
+    border-radius: 10px;
 }
