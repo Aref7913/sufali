@@ -1,147 +1,247 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <!-- سایر تگ‌های متا -->
-  
-  <!-- اضافه کردن فونت دست‌نویس -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font.css">
-  
-  <!-- استایل‌های سفارشی -->
-  <style>
-    /* حاشیه اسلیمی */
-    header::after, footer::before {
-      content: "";
-      display: block;
-      height: 15px;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0,5 Q25,10 50,5 T100,5" fill="none" stroke="%23daa520" stroke-width="1"/></svg>') repeat-x;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه سفالگری</title>
     
-    /* فونت‌ها */
-    body {
-      font-family: 'Vazirmatn', sans-serif;
-    }
-    h1, h2, h3 {
-      font-family: 'Vazirmatn', serif;
-      font-weight: 700;
-    }
-  </style>
+    <!-- فونت‌های ایرانی مدرن -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font.css" rel="stylesheet">
+    
+    <style>
+        /* ===== پالت رنگی مدرن ===== */
+        :root {
+            --primary: #C27B7F;   /* سرخابی لاکی */
+            --secondary: #6D8B74; /* سبز معدنی */
+            --accent: #EFDECD;    /* کرم نخودی */
+            --dark: #3C3633;      /* قهوه‌ای تیره */
+        }
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #fafafa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        /* ===== هدر مدرن ===== */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-family: 'Vazirmatn', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        /* ===== افکت پارالاکس ===== */
+        .parallax {
+            background-image: url('path/to/your-image.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .parallax-content {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 600px;
+            backdrop-filter: blur(5px);
+        }
+        
+        /* ===== کارت‌های محصول مدرن ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 3rem 1rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .product-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        /* ===== سیستم ریتینگ ===== */
+        .rating {
+            display: flex;
+            margin: 0.5rem 0;
+        }
+        
+        .rating span {
+            color: #FFD700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .rating span:hover {
+            transform: scale(1.2);
+        }
+        
+        /* ===== دکمه‌های مدرن ===== */
+        .btn {
+            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            color: white !important;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(109, 139, 116, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(109, 139, 116, 0.4);
+        }
+        
+        /* ===== انیمیشن چرخ سفالگری ===== */
+        @keyframes pottery-wheel {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+        }
+        
+        .pottery-wheel {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--accent);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: pottery-wheel 1s linear infinite;
+        }
+    </style>
 </head>
 <body>
-  <!-- محتوای قبلی سایت -->
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>سُفالی | فروشگاه خاص سفال</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-  <div class="top-bar">🚚 ارسال رایگان برای سفارش‌های بالای ۱ میلیون تومان</div>
-
-  <header class="sticky">
-    <h1>سُفالی</h1>
-    <nav>
-      <a href="index.html">خانه</a>
-      <a href="products.html">محصولات</a>
-      <a href="cart.html">سبد خرید</a>
-      <a href="blog.html">مقالات</a>
-      <a href="about.html">درباره ما</a>
-      <a href="contact.html">تماس با ما</a>
-      <label class="switch">
-        <input type="checkbox" id="themeToggle">
-        <span class="slider"></span>
-      </label>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>هنر را لمس کنید</h2>
-    <p>سفال‌های خاص برای سلیقه‌ی خاص</p>
-  </section>
-
-  <section class="gallery">
-    <h3>جدیدترین محصولات</h3>
-    <div class="products">
-      <div class="product-card"><img src="assets/p1.jpg"><h4>لیوان سنتی</h4><p>55,000 تومان</p><button>افزودن به سبد</button></div>
-      <div class="product-card"><img src="assets/p2.jpg"><h4>بشقاب نقش‌دار</h4><p>75,000 تومان</p><button>افزودن به سبد</button></div>
-      <div class="product-card"><img src="assets/p3.jpg"><h4>کاسه دست‌ساز</h4><p>65,000 تومان</p><button>افزودن به سبد</button></div>
-    </div>
-  </section>
-
-  <footer>
-    <p>در حال دریافت نماد اعتماد الکترونیکی هستیم. رضایت شما افتخار ماست.</p>
-    <p>© ۲۰۲۵ سُفالی</p>
-  </footer>
-
-  <a href="https://wa.me/98XXXXXXXXXX" class="whatsapp-float" target="_blank">🟢 چت واتساپ</a>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>سُفالی | هنر سفال مدرن</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <div class="container">
-      <h1>سُفالی</h1>
-      <nav>
-        <a href="index.html">خانه</a>
-        <a href="products.html">محصولات</a>
-        <a href="cart.html">سبد خرید</a>
-        <a href="blog.html">مقالات</a>
-        <a href="about.html">درباره ما</a>
-        <a href="contact.html">تماس با ما</a>
-      </nav>
-    </div>
-  </header>
-
-  <section class="hero">
-    <h2>زیبایی در دستان شماست</h2>
-    <p>سفال‌هایی از دل طبیعت، طراحی‌شده برای سبک زندگی مدرن</p>
-  </section>
-
-  <section class="products">
-    <h3>محصولات منتخب</h3>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="assets/p1.jpg" alt="Product 1">
-        <div class="product-info">
-          <h4>لیوان سنتی</h4>
-          <p>55,000 تومان</p>
-          <button>افزودن به سبد</button>
+    <!-- هدر -->
+    <header>
+        <div class="container">
+            <div class="logo">هنر سفال</div>
+            <!-- منو و سایر عناصر -->
         </div>
-      </div>
-      <div class="product-card">
-        <img src="assets/p2.jpg" alt="Product 2">
-        <div class="product-info">
-          <h4>بشقاب نقش‌دار</h4>
-          <p>75,000 تومان</p>
-          <button>افزودن به سبد</button>
+    </header>
+    
+    <!-- بخش پارالاکس -->
+    <section class="parallax">
+        <div class="parallax-content">
+            <h2>هنر اصیل، زیبایی ماندگار</h2>
+            <p>سفال‌های دست‌ساز با عشق و مهارت ساخته شده‌اند</p>
+            <a href="#products" class="btn">مشاهده محصولات</a>
         </div>
-      </div>
-      <div class="product-card">
-        <img src="assets/p3.jpg" alt="Product 3">
-        <div class="product-info">
-          <h4>کاسه دست‌ساز</h4>
-          <p>65,000 تومان</p>
-          <button>افزودن به سبد</button>
+    </section>
+    
+    <!-- سیستم ریتینگ -->
+    <section class="container">
+        <h3>امتیاز به محصولات</h3>
+        <div class="rating">
+            <span data-rating="1">★</span>
+            <span data-rating="2">★</span>
+            <span data-rating="3">★</span>
+            <span data-rating="4">★</span>
+            <span data-rating="5">★</span>
         </div>
-      </div>
+    </section>
+    
+    <!-- محصولات -->
+    <section id="products" class="products-grid">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="product1.jpg" alt="کوزه سفالی">
+            </div>
+            <div class="product-info">
+                <h3>کوزه سفالی دست‌ساز</h3>
+                <div class="rating">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                </div>
+                <p>ساخته شده از خاک رس مرغوب</p>
+                <button class="btn">افزودن به سبد</button>
+            </div>
+        </div>
+        
+        <!-- محصولات دیگر -->
+    </section>
+    
+    <!-- انیمیشن لودینگ -->
+    <div class="loading">
+        <div class="pottery-wheel"></div>
     </div>
-  </section>
 
-  <footer>
-    <p>© ۲۰۲۵ سُفالی | تمامی حقوق محفوظ است.</p>
-  </footer>
+    <script>
+        // اسکریپت انیمیشن محصولات
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                card.style.transform = `translateY(-10px) rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateY(0) rotateX(0)';
+            });
+        });
+        
+        // سیستم ریتینگ
+        document.querySelectorAll('.rating span').forEach(star => {
+            star.addEventListener('click', (e) => {
+                const rating = e.target.dataset.rating;
+                alert(`امتیاز ${rating} ستاره ثبت شد!`);
+            });
+        });
+    </script>
 </body>
 </html>
