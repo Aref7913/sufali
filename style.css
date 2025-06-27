@@ -77,3 +77,58 @@ footer {
   background-color: #4b6043;
   color: white;
 }
+/* === طرح سنتی === */
+/* 1. پس‌زمینه پارچه‌ای */
+body {
+  background-color: #f9f3e9;
+  background-image: 
+    linear-gradient(rgba(210, 180, 140, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(210, 180, 140, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* 2. کارت‌های محصول */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+.product-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0,5 C20,10 30,0 50,5 S80,0 100,5" fill="none" stroke="%23daa520" stroke-width="0.5"/></svg>') repeat-x;
+  opacity: 0.7;
+}
+.product-card img {
+  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s;
+}
+.product-card:hover img {
+  transform: scale(1.03);
+}
+
+/* 3. دکمه‌های طلایی */
+.btn {
+  background: linear-gradient(to right, #daa520, #b8860b);
+  color: #fff !important;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+  transform: rotate(30deg);
+}
