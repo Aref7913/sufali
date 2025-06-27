@@ -6,11 +6,13 @@
   <title>سُفالی | فروشگاه خاص سفال</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
   <div class="top-bar">🚚 ارسال رایگان برای سفارش‌های بالای ۲۰۰ هزار تومان</div>
 
-  <header>
+  <header class="sticky">
     <h1>سُفالی</h1>
     <nav>
       <a href="index.html">خانه</a>
@@ -33,27 +35,15 @@
 
   <section class="gallery">
     <h3>جدیدترین محصولات</h3>
-    <div class="carousel">
-      <img src="assets/p1.jpg" alt="محصول ۱">
-      <img src="assets/p2.jpg" alt="محصول ۲">
-      <img src="assets/p3.jpg" alt="محصول ۳">
+    <div class="products">
+      <div class="product-card"><img src="assets/p1.jpg"><h4>لیوان سنتی</h4><p>55,000 تومان</p><button>افزودن به سبد</button></div>
+      <div class="product-card"><img src="assets/p2.jpg"><h4>بشقاب نقش‌دار</h4><p>75,000 تومان</p><button>افزودن به سبد</button></div>
+      <div class="product-card"><img src="assets/p3.jpg"><h4>کاسه دست‌ساز</h4><p>65,000 تومان</p><button>افزودن به سبد</button></div>
     </div>
   </section>
 
-  <section class="trust">
-    <div title="درگاه امن پرداخت">💳</div>
-    <div title="ضمانت تعویض ۷ روزه">✅</div>
-    <div title="در حال دریافت نماد اعتماد">🛡</div>
-  </section>
-
-  <section class="newsletter">
-    <h4>عضویت در خبرنامه</h4>
-    <input type="email" placeholder="ایمیل شما">
-    <button>ثبت</button>
-  </section>
-
   <footer>
-    <p>سُفالی در حال دریافت نماد اعتماد الکترونیکی است. رضایت مشتریان افتخار ماست.</p>
+    <p>در حال دریافت نماد اعتماد الکترونیکی هستیم. رضایت شما افتخار ماست.</p>
     <p>© ۲۰۲۵ سُفالی</p>
   </footer>
 
