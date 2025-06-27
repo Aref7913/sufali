@@ -1,3 +1,45 @@
+<!-- بعد از تگ <header> -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="#home">خانه</a></li>
+    <li><a href="#products">محصولات</a></li>
+    <li><a href="#about">درباره ما</a></li>
+    <li><a href="#contact">تماس</a></li>
+  </ul>
+</nav>
+
+<style>
+  /* استایل منو */
+  .main-nav {
+    background: #5D4037;
+    padding: 1rem 0;
+  }
+  
+  .main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+  
+  .main-nav a {
+    color: #FFECB3;
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  .main-nav a:hover {
+    background: #4E342E;
+    border-radius: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    .main-nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
