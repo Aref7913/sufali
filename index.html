@@ -1,64 +1,52 @@
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>سُفالی | هنر سفال مدرن</title>
+  <title>سُفالی | فروشگاه خاص سفال</title>
   <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="script.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>سُفالی</h1>
-      <nav>
-        <a href="index.html">خانه</a>
-        <a href="products.html">محصولات</a>
-        <a href="cart.html">سبد خرید</a>
-        <a href="blog.html">مقالات</a>
-        <a href="about.html">درباره ما</a>
-        <a href="contact.html">تماس با ما</a>
-      </nav>
-    </div>
+  <div class="top-bar">🚚 ارسال رایگان برای سفارش‌های بالای ۲۰۰ هزار تومان</div>
+
+  <header class="sticky">
+    <h1>سُفالی</h1>
+    <nav>
+      <a href="index.html">خانه</a>
+      <a href="products.html">محصولات</a>
+      <a href="cart.html">سبد خرید</a>
+      <a href="blog.html">مقالات</a>
+      <a href="about.html">درباره ما</a>
+      <a href="contact.html">تماس با ما</a>
+      <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+      </label>
+    </nav>
   </header>
 
   <section class="hero">
-    <h2>زیبایی در دستان شماست</h2>
-    <p>سفال‌هایی از دل طبیعت، طراحی‌شده برای سبک زندگی مدرن</p>
+    <h2>هنر را لمس کنید</h2>
+    <p>سفال‌های خاص برای سلیقه‌ی خاص</p>
   </section>
 
-  <section class="products">
-    <h3>محصولات منتخب</h3>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="assets/p1.jpg" alt="Product 1">
-        <div class="product-info">
-          <h4>لیوان سنتی</h4>
-          <p>55,000 تومان</p>
-          <button>افزودن به سبد</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="assets/p2.jpg" alt="Product 2">
-        <div class="product-info">
-          <h4>بشقاب نقش‌دار</h4>
-          <p>75,000 تومان</p>
-          <button>افزودن به سبد</button>
-        </div>
-      </div>
-      <div class="product-card">
-        <img src="assets/p3.jpg" alt="Product 3">
-        <div class="product-info">
-          <h4>کاسه دست‌ساز</h4>
-          <p>65,000 تومان</p>
-          <button>افزودن به سبد</button>
-        </div>
-      </div>
+  <section class="gallery">
+    <h3>جدیدترین محصولات</h3>
+    <div class="products">
+      <div class="product-card"><img src="assets/p1.jpg"><h4>لیوان سنتی</h4><p>55,000 تومان</p><button>افزودن به سبد</button></div>
+      <div class="product-card"><img src="assets/p2.jpg"><h4>بشقاب نقش‌دار</h4><p>75,000 تومان</p><button>افزودن به سبد</button></div>
+      <div class="product-card"><img src="assets/p3.jpg"><h4>کاسه دست‌ساز</h4><p>65,000 تومان</p><button>افزودن به سبد</button></div>
     </div>
   </section>
 
   <footer>
-    <p>© ۲۰۲۵ سُفالی | تمامی حقوق محفوظ است.</p>
+    <p>در حال دریافت نماد اعتماد الکترونیکی هستیم. رضایت شما افتخار ماست.</p>
+    <p>© ۲۰۲۵ سُفالی</p>
   </footer>
+
+  <a href="https://wa.me/98XXXXXXXXXX" class="whatsapp-float" target="_blank">🟢 چت واتساپ</a>
 </body>
 </html>
