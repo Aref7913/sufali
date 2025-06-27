@@ -1,31 +1,46 @@
-<script>
-  const slider = document.querySelector('.products-grid');
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+<!-- بعد از تگ <header> -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="#home">خانه</a></li>
+    <li><a href="#products">محصولات</a></li>
+    <li><a href="#about">درباره ما</a></li>
+    <li><a href="#contact">تماس</a></li>
+  </ul>
+</nav>
 
-  slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = slider.scrollLeft;
-  });
-
-  slider.addEventListener('mouseleave', () => {
-    isDown = false;
-  });
-
-  slider.addEventListener('mouseup', () => {
-    isDown = false;
-  });
-
-  slider.addEventListener('mousemove', (e) => {
-    if(!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-    slider.scrollLeft = scrollLeft - walk;
-  });
-</script>body {
+<style>
+  /* استایل منو */
+  .main-nav {
+    background: #5D4037;
+    padding: 1rem 0;
+  }
+  
+  .main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+  
+  .main-nav a {
+    color: #FFECB3;
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  
+  .main-nav a:hover {
+    background: #4E342E;
+    border-radius: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    .main-nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+body {
   font-family: 'Vazirmatn', sans-serif;
   margin: 0;
   background-color: #f9f6f1;
