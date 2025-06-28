@@ -1,42 +1,30 @@
-<!-- ======= شروع کد منو ======= -->
-<nav class="main-nav">
-  <ul>
-    <li><a href="#home">خانه</a></li>
-    <li><a href="#products">محصولات</a></li>
-    <li><a href="#about.html">درباره ما</a></li>
-    <li><a href="#contact">تماس</a></li>
-  </ul>
-</nav>
-<!-- ======= پایان کد منو ======= -->
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فروشگاه سفالگری اصیل</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font.css" rel="stylesheet">
     <style>
-        /* ===== تنظیمات پایه ===== */
+        /* === استایل‌های عمومی === */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        
         body {
             font-family: 'Vazirmatn', sans-serif;
             background: #f9f3e9;
             color: #5c3317;
             line-height: 1.6;
         }
-        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* ===== هدر با طراحی سنتی ===== */
+
+        /* === هدر و منو === */
         header {
             background: linear-gradient(to right, #8d6e63, #5d4037);
             padding: 1rem 0;
@@ -45,15 +33,33 @@
             top: 0;
             z-index: 1000;
         }
-        
         .logo {
             font-size: 1.8rem;
             color: #ffecb3;
             font-weight: 700;
             text-align: center;
         }
-        
-        /* ===== بخش پارالاکس ===== */
+        .main-nav {
+            background: #5D4037;
+            padding: 1rem 0;
+        }
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        .main-nav a {
+            color: #FFECB3;
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .main-nav a:hover {
+            background: #4E342E;
+            border-radius: 30px;
+        }
+
+        /* === بخش پارالاکس === */
         .parallax {
             background-image: url('https://images.unsplash.com/photo-1570824104453-ceaf22b7e59a');
             background-attachment: fixed;
@@ -66,7 +72,6 @@
             justify-content: center;
             text-align: center;
         }
-        
         .parallax-content {
             background: rgba(255, 255, 255, 0.85);
             padding: 2rem;
@@ -74,19 +79,11 @@
             max-width: 600px;
             backdrop-filter: blur(5px);
         }
-        
         .parallax-content h2 {
             color: #5d4037;
             margin-bottom: 1rem;
             font-size: 2rem;
         }
-        
-        .parallax-content p {
-            color: #4e342e;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-        
         .btn {
             background: #5d4037;
             color: #ffecb3 !important;
@@ -94,138 +91,105 @@
             padding: 12px 30px;
             border-radius: 30px;
             font-weight: 600;
-            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s;
             display: inline-block;
             text-decoration: none;
             box-shadow: 0 4px 10px rgba(93, 64, 55, 0.3);
         }
-        
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(93, 64, 55, 0.4);
-            background: #4e342e;
         }
-        
-        /* ===== بخش محصولات ===== */
+
+        /* === محصولات === */
         #products {
             padding: 4rem 0;
         }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #4e342e;
-            font-size: 2rem;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 100px;
-            height: 3px;
-            background: #8d6e63;
-            margin: 10px auto;
-            border-radius: 3px;
-        }
-        
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
         }
-        
         .product-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 6px 15px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            position: relative;
         }
-        
         .product-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 25px rgba(0,0,0,0.15);
         }
-        
         .product-image {
             height: 220px;
             overflow: hidden;
         }
-        
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
-        
         .product-card:hover .product-image img {
             transform: scale(1.05);
         }
-        
         .product-info {
             padding: 1.5rem;
         }
-        
         .product-title {
-            color: #4e342e;
-            margin-bottom: 0.5rem;
             font-size: 1.3rem;
+            color: #4e342e;
         }
-        
-        .product-price {
-            color: #5d4037;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 0.5rem 0;
-        }
-        
-        /* ===== سیستم امتیازدهی ===== */
         .rating {
             display: flex;
             margin: 0.5rem 0;
         }
-        
         .rating span {
             color: #ffd700;
             font-size: 1.2rem;
             margin-right: 3px;
         }
-        
-        /* ===== فوتر ===== */
+
+        /* === فرم تماس === */
+        #contact {
+            background: #EFEBE9;
+            padding: 3rem 0;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid #BCAAA4;
+            border-radius: 5px;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        /* === فوتر === */
         footer {
             background: #4e342e;
             color: #ffecb3;
             padding: 2rem 0;
             text-align: center;
         }
-        
-        /* ===== رسپانسیو ===== */
+
+        /* === رسپانسیو === */
         @media (max-width: 768px) {
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
             }
-            
             .parallax {
                 height: 50vh;
-            }
-            
-            .parallax-content {
-                padding: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .logo {
-                font-size: 1.5rem;
             }
         }
     </style>
@@ -237,7 +201,17 @@
             <div class="logo">هنر سفال</div>
         </div>
     </header>
-    
+
+    <!-- منو -->
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html#home">خانه</a></li>
+            <li><a href="index.html#products">محصولات</a></li>
+            <li><a href="about.html">درباره ما</a></li>
+            <li><a href="index.html#contact">تماس</a></li>
+        </ul>
+    </nav>
+
     <!-- بخش پارالاکس -->
     <section class="parallax">
         <div class="parallax-content">
@@ -246,20 +220,9 @@
             <a href="#products" class="btn">مشاهده محصولات</a>
         </div>
     </section>
-    
+
     <!-- محصولات -->
     <section id="products" class="container">
-      <!-- ======= شروع کد فرم تماس ======= -->
-<section id="contact" class="contact-form">
-  <h2 class="section-title">تماس با ما</h2>
-  <form>
-    <input type="text" placeholder="نام شما" required>
-    <input type="email" placeholder="ایمیل" required>
-    <textarea placeholder="پیام شما..." required></textarea>
-    <button type="submit" class="btn">ارسال پیام</button>
-  </form>
-</section>
-<!-- ======= پایان کد فرم تماس ======= -->
         <h2 class="section-title">محصولات ما</h2>
         <div class="products-grid">
             <!-- محصول ۱ -->
@@ -276,7 +239,7 @@
                     <button class="btn">افزودن به سبد</button>
                 </div>
             </div>
-            
+
             <!-- محصول ۲ -->
             <div class="product-card">
                 <div class="product-image">
@@ -291,24 +254,22 @@
                     <button class="btn">افزودن به سبد</button>
                 </div>
             </div>
-            
-            <!-- محصول ۳ -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1595433707808-224b871d3b4f" alt="گلدان سفالی">
-                </div>
-                <div class="product-info">
-                    <h3 class="product-title">گلدان سفالی</h3>
-                    <div class="rating">
-                        <span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>
-                    </div>
-                    <p class="product-price">۱۸۰,۰۰۰ تومان</p>
-                    <button class="btn">افزودن به سبد</button>
-                </div>
-            </div>
         </div>
     </section>
-    
+
+    <!-- فرم تماس -->
+    <section id="contact" class="contact-form">
+        <div class="container">
+            <h2 class="section-title">تماس با ما</h2>
+            <form>
+                <input type="text" placeholder="نام شما" required>
+                <input type="email" placeholder="ایمیل" required>
+                <textarea placeholder="پیام شما..." required></textarea>
+                <button type="submit" class="btn">ارسال پیام</button>
+            </form>
+        </div>
+    </section>
+
     <!-- فوتر -->
     <footer>
         <div class="container">
@@ -316,10 +277,24 @@
         </div>
     </footer>
 
+    <!-- اسکریپت‌ها -->
     <script>
-        // اسکریپت ساده برای تعامل
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function() {
+        // سیستم امتیازدهی
+        document.querySelectorAll('.rating span').forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = this.parentElement;
+                const stars = rating.querySelectorAll('span');
+                const clickedIndex = Array.from(stars).indexOf(this);
+                
+                stars.forEach((s, index) => {
+                    s.textContent = index <= clickedIndex ? '★' : '☆';
+                });
+            });
+        });
+
+        // دکمه افزودن به سبد
+        document.querySelectorAll('.product-card .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
                 const productName = this.closest('.product-card').querySelector('.product-title').textContent;
                 alert(`«${productName}» به سبد خرید اضافه شد!`);
             });
