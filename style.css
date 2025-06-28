@@ -221,3 +221,25 @@ body {
   }
 }
 /* ======= پایان استایل منو ======= */
+/* ======= استایل فرم تماس ======= */
+.contact-form {
+  background: #EFEBE9;
+  padding: 3rem 0;
+}
+.contact-form form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #BCAAA4;
+  border-radius: 5px;
+  font-family: 'Vazirmatn', sans-serif;
+}
+.contact-form textarea {
+  height: 150px;
+}
+/* ======= پایان استایل فرم ======= */
