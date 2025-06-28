@@ -1,15 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>درباره ما | سُفالی</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>درباره ما | هنر سفال</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font.css">
+  <style>
+    /* استایل‌های مشترک با index.html */
+    body { 
+      font-family: 'Vazirmatn', sans-serif;
+      background: #f9f3e9;
+      color: #5c3317;
+    }
+    header, .main-nav, footer {
+      /* کپی استایل‌های هدر/منو/فوتر از index.html اینجا قرار دهید */
+    }
+    
+    /* استایل‌های اختصاصی */
+    .about-section {
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .pottery-wheel {
+      width: 150px;
+      height: 150px;
+      border: 10px solid #5D4037;
+      border-top: 10px solid #FFC107;
+      border-radius: 50%;
+      margin: 2rem auto;
+      animation: spin 4s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
-  <header><h1>درباره فروشگاه سُفالی</h1></header>
-  <main>
-    <p>سُفالی با هدف احیای هنر سنتی سفالگری ایجاد شده است.</p>
-  </main>
+  <header>
+    <div class="container">
+      <div class="logo">هنر سفال</div>
+    </div>
+  </header>
+  
+  <nav class="main-nav">
+    <!-- کد منو را از index.html اینجا کپی کنید -->
+  </nav>
+  
+  <section class="about-section">
+    <div class="container">
+      <h1>درباره ما</h1>
+      <div class="pottery-wheel"></div>
+      <p>ما از سال ۱۳۸۵ با عشق به هنر سفالگری شروع کردیم...</p>
+    </div>
+  </section>
+  
+  <footer>
+    <!-- کد فوتر را از index.html اینجا کپی کنید -->
+  </footer>
 </body>
 </html>
