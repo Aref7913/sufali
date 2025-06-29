@@ -1,586 +1,3 @@
-/* ===== متغیرهای رنگی ===== */
-:root {
-  --clay: #8D6E63;
-  --dark-clay: #5D4037;
-  --gold: #D4AF37;
-  --cream: #EFEBE9;
-  --text: #3E2723;
-  --light-clay: #BCAAA4;
-  --discount: #d32f2f;
-}
-
-/* ===== استایل پایه ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
-}
-
-body {
-  font-family: 'Vazirmatn', sans-serif;
-  background: 
-    radial-gradient(circle at 10% 20%, rgba(239,235,233,0.8) 0%, rgba(255,255,255,1) 100%),
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,50 Q50,30 70,50 T90,50" fill="none" stroke="%238D6E63" stroke-width="0.5" opacity="0.2"/></svg>') repeat;
-  color: var(--text);
-  line-height: 1.8;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* ===== هدر و منو ===== */
-header {
-  background: linear-gradient(135deg, var(--dark-clay), var(--clay));
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.logo {
-  font-size: 2rem;
-  color: var(--gold);
-  text-align: center;
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.main-nav {
-  background: var(--dark-clay);
-  padding: 1rem 0;
-}
-
-.main-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-}
-
-.main-nav a {
-  color: var(--cream);
-  padding: 0.8rem 1.5rem;
-  text-decoration: none;
-  margin: 0 5px;
-  border-radius: 30px;
-  font-weight: 500;
-}
-
-.main-nav a:hover {
-  background: rgba(0,0,0,0.2);
-  color: var(--gold);
-}
-
-/* ===== بخش اصلی ===== */
-.hero {
-  background: url('https://images.unsplash.com/photo-1570824104453-ceaf22b7e59a') center/cover;
-  height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.3);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  color: white;
-  max-width: 800px;
-  padding: 2rem;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
-
-/* ===== دکمه‌ها ===== */
-.btn {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--gold), #B8860B);
-  color: var(--dark-clay) !important;
-  padding: 12px 30px;
-  border-radius: 30px;
-  font-weight: 700;
-  margin-top: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  border: none;
-  cursor: pointer;
-  font-size: 1.1rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(to bottom right, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
-  transform: rotate(30deg);
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-  background: linear-gradient(135deg, #B8860B, var(--gold));
-}
-
-.btn-outline {
-  background: transparent;
-  border: 2px solid var(--gold);
-  color: var(--gold) !important;
-}
-
-.btn-outline:hover {
-  background: var(--gold) !important;
-  color: var(--dark-clay) !important;
-}
-
-/* ===== بخش محصولات ===== */
-#products {
-  padding: 4rem 0;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  color: var(--dark-clay);
-  position: relative;
-}
-
-.section-title::after {
-  content: "";
-  display: block;
-  width: 100px;
-  height: 3px;
-  background: var(--clay);
-  margin: 10px auto;
-  border-radius: 3px;
-}
-
-/* دسته‌بندی محصولات */
-.categories {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 2rem;
-}
-
-.category-btn {
-  background: white;
-  border: 1px solid var(--clay);
-  color: var(--clay);
-  padding: 8px 20px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.category-btn.active, .category-btn:hover {
-  background: var(--clay);
-  color: white;
-}
-
-/* کارت محصولات */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
-.product-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 
-    0 3px 6px rgba(0,0,0,0.1),
-    0 3px 6px rgba(93, 64, 55, 0.1);
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  position: relative;
-  border: 1px solid var(--cream);
-}
-
-.product-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 30px;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0,5 C20,10 30,0 50,5 S80,0 100,5" fill="none" stroke="%23D4AF37" stroke-width="0.5"/></svg>') repeat-x;
-  opacity: 0.7;
-}
-
-.discount-badge {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background: var(--discount);
-  color: white;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  z-index: 2;
-}
-
-.product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 
-    0 7px 14px rgba(0,0,0,0.1),
-    0 5px 5px rgba(93, 64, 55, 0.1);
-}
-
-.product-image {
-  height: 220px;
-  overflow: hidden;
-  position: relative;
-}
-
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
-}
-
-.product-card:hover .product-image img {
-  transform: scale(1.05);
-}
-
-.product-info {
-  padding: 1.5rem;
-}
-
-.product-title {
-  font-size: 1.3rem;
-  color: var(--dark-clay);
-  margin-bottom: 0.5rem;
-}
-
-.price {
-  color: var(--clay);
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin: 1rem 0;
-}
-
-.old-price {
-  text-decoration: line-through;
-  color: #999;
-  font-size: 0.9rem;
-  margin-left: 10px;
-}
-
-.rating {
-  color: #FFD700;
-  margin: 0.5rem 0;
-  font-size: 1.2rem;
-}
-
-/* ===== بخش پارالاکس ===== */
-.parallax {
-  background: url('https://images.unsplash.com/photo-1586448900401-87f0b7faa3d6') center/cover fixed;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-
-.parallax::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(93, 64, 55, 0.4);
-}
-
-.parallax-content {
-  position: relative;
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 80%;
-}
-
-/* ===== بخش نظرات مشتریان ===== */
-.testimonials {
-  background: #f9f9f9;
-  padding: 4rem 0;
-  margin: 4rem 0;
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.testimonial-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.testimonial-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.testimonial-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-left: 15px;
-}
-
-.testimonial-product {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-/* ===== بخش بلاگ ===== */
-.blog-section {
-  padding: 4rem 0;
-}
-
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.blog-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.blog-content {
-  padding: 1.5rem;
-}
-
-/* ===== فرم تماس ===== */
-.contact-section {
-  padding: 4rem 0;
-  background: #f5f5f5;
-}
-
-.contact-form {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--light-clay);
-  border-radius: 5px;
-  font-family: 'Vazirmatn', sans-serif;
-  font-size: 1rem;
-}
-
-.form-group textarea {
-  height: 150px;
-  resize: vertical;
-}
-
-.error-msg {
-  color: var(--discount);
-  display: none;
-  font-size: 0.9rem;
-  margin-top: 5px;
-}
-
-/* ===== خبرنامه ===== */
-.newsletter {
-  background: var(--dark-clay);
-  color: white;
-  padding: 3rem 0;
-  text-align: center;
-  margin: 4rem 0;
-}
-
-.newsletter-form {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  gap: 10px;
-}
-
-.newsletter-form input {
-  flex: 1;
-  padding: 12px 15px;
-  border: none;
-  border-radius: 30px;
-  font-family: 'Vazirmatn', sans-serif;
-}
-
-/* ===== فوتر ===== */
-footer {
-  background: var(--dark-clay);
-  color: var(--cream);
-  text-align: center;
-  padding: 2rem 0;
-  margin-top: 2rem;
-}
-
-/* ===== چت آنلاین ===== */
-.chat-widget {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  width: 300px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  z-index: 1000;
-}
-
-.chat-header {
-  background: var(--clay);
-  color: white;
-  padding: 12px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.chat-body {
-  display: none;
-  padding: 15px;
-}
-
-.chat-body input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-/* ===== مودال سفارشی‌سازی ===== */
-.customization-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  z-index: 2000;
-  justify-content: center;
-  align-items: center;
-}
-
-.customization-content {
-  background: white;
-  width: 90%;
-  max-width: 500px;
-  border-radius: 12px;
-  padding: 2rem;
-  position: relative;
-}
-
-.close-modal {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--clay);
-}
-
-/* ===== نسخه موبایل ===== */
-@media (max-width: 768px) {
-  .main-nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .main-nav a {
-    display: block;
-    margin: 8px 0;
-  }
-  
-  .hero h1 {
-    font-size: 2rem;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .chat-widget {
-    width: 250px;
-    left: 10px;
-    bottom: 10px;
-  }
-  
-  .about-content {
-    grid-template-columns: 1fr;
-  }
-  
-  .newsletter-form {
-    flex-direction: column;
-  }
-  
-  .parallax {
-    height: 300px;
-    background-attachment: scroll;
-  }
-}
-
-@media (max-width: 480px) {
-  .products-grid, .testimonials-grid, .blog-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .hero {
-    height: 50vh;
-  }
-}
-
 /* ===== طرح سنتی - بهبود یافته ===== */
 /* 1. پس‌زمینه پارچه‌ای */
 body {
@@ -595,25 +12,31 @@ body {
 .product-card {
   position: relative;
   overflow: hidden;
-  border-radius: 5px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d4af37;
+  background: linear-gradient(to bottom, #f8f4f0, #efeae6);
 }
+
 .product-card::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 30px;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0,5 C20,10 30,0 50,5 S80,0 100,5" fill="none" stroke="%23daa520" stroke-width="0.5"/></svg>') repeat-x;
-  opacity: 0.7;
+  height: 40px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0,5 C20,10 30,0 50,5 S80,0 100,5" fill="none" stroke="%23daa520" stroke-width="0.8"/></svg>') repeat-x;
+  opacity: 0.5;
 }
+
 .product-card img {
   filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
-  transition: transform 0.3s;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-bottom: 2px solid #d4af37;
 }
+
 .product-card:hover img {
-  transform: scale(1.03);
+  transform: scale(1.07);
 }
 
 /* 3. دکمه‌های طلایی */
@@ -621,11 +44,15 @@ body {
   background: linear-gradient(to right, #daa520, #b8860b);
   color: #fff !important;
   border: none;
-  padding: 8px 20px;
+  padding: 12px 28px;
   border-radius: 30px;
   position: relative;
   overflow: hidden;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(218, 165, 32, 0.4);
 }
+
 .btn::after {
   content: "";
   position: absolute;
@@ -635,4 +62,107 @@ body {
   height: 200%;
   background: linear-gradient(to bottom right, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
   transform: rotate(30deg);
-  }
+  transition: all 0.5s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(218, 165, 32, 0.5);
+}
+
+.btn:hover::after {
+  transform: rotate(30deg) translate(10%, 10%);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #daa520;
+  color: #daa520 !important;
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: linear-gradient(to right, #daa520, #b8860b);
+  color: #fff !important;
+}
+
+/* 4. حاشیه‌های سنتی */
+.section-title::after {
+  height: 4px;
+  background: linear-gradient(to right, #daa520, #b8860b);
+  border-radius: 10px;
+}
+
+/* 5. افکت‌های اضافی برای اصالت */
+.hero::after {
+  background: linear-gradient(45deg, rgba(93, 64, 55, 0.6), rgba(141, 110, 99, 0.4));
+}
+
+.parallax::before {
+  background: linear-gradient(45deg, rgba(93, 64, 55, 0.7), rgba(141, 110, 99, 0.5));
+}
+
+/* 6. بهبود ناوبری */
+.main-nav a {
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: all 0.4s;
+}
+
+.main-nav a:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: #d4af37;
+}
+
+/* 7. تایپوگرافی سنتی */
+body {
+  font-family: 'Vazirmatn', serif;
+}
+
+.section-title {
+  font-family: 'Vazirmatn', serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* 8. بهبود کارت‌های نظرات */
+.testimonial-card {
+  border: 1px solid #d4af37;
+  background: linear-gradient(to bottom, #fcf9f5, #f7f2ec);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #daa520, #b8860b);
+}
+
+/* 9. افکت‌های تعاملی */
+.category-btn {
+  border: 1px solid #daa520;
+  background: #f8f4f0;
+}
+
+.category-btn.active, .category-btn:hover {
+  background: linear-gradient(to right, #daa520, #b8860b);
+  color: #fff;
+  border-color: #b8860b;
+}
+
+/* 10. بهبود فوتر */
+footer {
+  background: linear-gradient(to bottom, #5D4037, #3E2723);
+  border-top: 3px solid #d4af37;
+}
+
+/* 11. سایه‌های سنتی */
+.product-card, .testimonial-card, .blog-card {
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.08),
+    0 0 10px rgba(218, 165, 32, 0.1);
+}
