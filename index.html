@@ -1,14 +1,292 @@
-<!DOCTYPE html><html lang="fa" dir="rtl">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>هنر سفال | فروشگاه سفالگری دست‌ساز</title>
-    <meta name="description" content="فروشگاه تخصصی سفال‌های دست‌ساز ایرانی با کیفیت ممتاز و ارسال سریع به سراسر کشور.">
-    <meta name="keywords" content="سفال, هنر سنتی, صنایع دستی, کوزه سفالی, گلدان, هدایای هنری, سفال تزیینی">
+    <!-- بهینه‌سازی سئو -->
+    <meta name="description" content="فروشگاه تخصصی سفال‌های دست‌ساز ایرانی با کیفیت ممتاز">
+    <meta name="keywords" content="سفال, هنر سنتی, صنایع دستی, کوزه سفالی">
     <link rel="canonical" href="https://aref7913.github.io/sufali">
+    <!-- فونت فارسی -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font.css" rel="stylesheet">
     <style>
-        /* استایل‌ها مشابه نسخه قبل است و در صورت نیاز خلاصه‌تر خواهد شد */
+        /* === استایل‌های کامل === */
+        :root {
+            --primary: #8D6E63;
+            --secondary: #5D4037;
+            --accent: #FFECB3;
+            --text: #4E342E;
+            --bg: #FAF5F0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 2rem;
+            color: var(--accent);
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        nav {
+            background: var(--secondary);
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav a {
+            color: var(--accent);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            margin: 0 5px;
+            border-radius: 30px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        nav a:hover {
+            background: rgba(0,0,0,0.2);
+        }
+        .hero {
+            background: url('https://images.unsplash.com/photo-1570824104453-ceaf22b7e59a') center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--secondary) !important;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+        #products {
+            padding: 4rem 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--secondary);
+            position: relative;
+            }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--primary);
+            margin: 10px auto;
+            border-radius: 3px;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        .product-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        .product-info {
+            padding: 1.5rem;
+        }
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        .price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        .rating {
+            color: #FFD700;
+            margin: 0.5rem 0;
+            font-size: 1.2rem;
+        }
+        .contact-section {
+            padding: 4rem 0;
+            background: #f5f5f5;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #BCAAA4;
+            border-radius: 5px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .error-msg {
+            color: #d32f2f;
+            display: none;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        footer {
+            background: var(--secondary);
+            color: var(--accent);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 300px;
+            background: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+        .chat-header {
+            background: var(--primary);
+            color: white;
+            padding: 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chat-body {
+            display: none;
+            padding: 15px;
+        }
+        .chat-body input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .gallery {
+            padding: 3rem 0;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .gallery-grid img {
+            width: 100%;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            cursor: pointer;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 8px 0;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .chat-widget {
+                width: 250px;
+                left: 10px;
+                bottom: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -17,81 +295,197 @@
         <div class="container">
             <div class="logo">هنر سفال</div>
         </div>
-    </header><!-- منو -->
-<nav>
-    <div class="container">
-        <a href="#home">خانه</a>
-        <a href="#products">محصولات</a>
-        <a href="#contact">تماس</a>
-    </div>
-</nav>
+    </header>
 
-<!-- بخش معرفی -->
-<section class="hero" id="home">
-    <div class="hero-content">
-        <h1>هنر اصیل، زیبایی ماندگار</h1>
-        <p>سفال‌های دست‌ساز با عشق و مهارت ساخته شده‌اند</p>
-        <a href="#products" class="btn">مشاهده محصولات</a>
-    </div>
-</section>
+    <!-- منو -->
+    <nav>
+        <div class="container">
+            <a href="#home">خانه</a>
+            <a href="#products">محصولات</a>
+            <a href="about.html">درباره ما</a>
+            <a href="#contact">تماس</a>
+        </div>
+    </nav>
 
-<!-- محصولات -->
-<section id="products" class="container">
-    <h2 class="section-title">محصولات ما</h2>
-    <div class="products-grid">
-        <!-- محصول نمونه با لینک زرین‌پال -->
-        <div class="product-card">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1585109647336-9f779b83d9e4" alt="کوزه سفالی">
+    <!-- بخش اصلی -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>هنر اصیل، زیبایی ماندگار</h1>
+            <p>سفال‌های دست‌ساز با عشق و مهارت ساخته شده‌اند</p>
+            <a href="#products" class="btn">مشاهده محصولات</a>
+        </div>
+    </section>
+
+    <!-- محصولات -->
+    <section id="products" class="container">
+        <h2 class="section-title">محصولات ما</h2>
+        <div class="products-grid">
+            <!-- محصول ۱ -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1585109647336-9f779b83d9e4" alt="کوزه سفالی">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">کوزه سفالی دست‌ساز</h3>
+                    <div class="rating">★★★★★</div>
+                    <div class="price">۱۵۰,۰۰۰ تومان</div>
+                    <button class="btn">افزودن به سبد</button>
+                </div>
             </div>
-            <div class="product-info">
-                <h3 class="product-title">کوزه سفالی دست‌ساز</h3>
-                <div class="rating">★★★★★</div>
-                <div class="price">۱۵۰,۰۰۰ تومان</div>
-                <a class="btn" target="_blank" href="https://zarinp.al/yourproductid1">خرید از زرین‌پال</a>
+
+            <!-- محصول ۲ -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1593288942460-e0f1c7e0a8d8" alt="مجسمه سفالی">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">مجسمه سفالی</h3>
+                    <div class="rating">★★★★☆</div>
+                    <div class="price">۲۲۰,۰۰۰ تومان</div>
+                    <button class="btn">افزودن به سبد</button>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1593288942460-e0f1c7e0a8d8" alt="مجسمه سفالی">
-            </div>
-            <div class="product-info">
-                <h3 class="product-title">مجسمه سفالی</h3>
-                <div class="rating">★★★★☆</div>
-                <div class="price">۲۲۰,۰۰۰ تومان</div>
-                <a class="btn" target="_blank" href="https://zarinp.al/yourproductid2">خرید از زرین‌پال</a>
-            </div>
+    <!-- گالری محصولات -->
+    <section class="gallery container">
+        <h2 class="section-title">گالری آثار</h2>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1585109647336-9f779b83d9e4" alt="اثر سفالی ۱">
+            <img src="https://images.unsplash.com/photo-1593288942460-e0f1c7e0a8d8" alt="اثر سفالی ۲">
+            <img src="https://images.unsplash.com/photo-1595433707808-224b871d3b4f" alt="اثر سفالی ۳">
+        </div>
+    </section>
+
+    <!-- فرم تماس -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">تماس با ما</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-group">
+                    <input type="text" id="name" placeholder="نام کامل" required>
+                    <small class="error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="ایمیل" required>
+                    <small class="error-msg"></small>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" placeholder="پیام شما..." required></textarea>
+                    <small class="error-msg"></small>
+                </div>
+                <button type="submit" class="btn">ارسال پیام</button>
+            </form>
+        </div>
+    </section>
+  <!-- فوتر -->
+    <footer>
+        <div class="container">
+            <p>© ۱۴۰۳ هنر سفال - تمام حقوق محفوظ است</p>
+            <p>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸ | ایمیل: info@honaresofal.ir</p>
+        </div>
+    </footer>
+
+    <!-- چت آنلاین -->
+    <div id="chat-widget" class="chat-widget">
+        <div class="chat-header" onclick="toggleChat()">
+            <span>پرسش از ما</span>
+            <span class="toggle-icon">+</span>
+        </div>
+        <div class="chat-body">
+            <div class="messages"></div>
+            <input type="text" placeholder="پیام شما..." id="chat-input">
+            <button class="btn" onclick="sendMessage()" style="margin-top: 10px; width: 100%">ارسال</button>
         </div>
     </div>
-</section>
 
-<!-- فرم تماس -->
-<section id="contact" class="contact-section">
-    <div class="container">
-        <h2 class="section-title">تماس با ما</h2>
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form">
-            <div class="form-group">
-                <input type="text" name="name" placeholder="نام کامل" required>
-            </div>
-            <div class="form-group">
-                <input type="email" name="email" placeholder="ایمیل" required>
-            </div>
-            <div class="form-group">
-                <textarea name="message" placeholder="پیام شما..." required></textarea>
-            </div>
-            <button type="submit" class="btn">ارسال پیام</button>
-        </form>
-    </div>
-</section>
+    <script>
+        // ======= اسکریپت‌های سایت =======
+        // اعتبارسنجی فرم تماس
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
 
-<!-- فوتر -->
-<footer>
-    <div class="container">
-        <p>© ۱۴۰۳ هنر سفال - تمام حقوق محفوظ است</p>
-        <p>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸ | ایمیل: info@honaresofal.ir</p>
-    </div>
-</footer>
+            // اعتبارسنجی نام
+            const nameInput = document.getElementById('name');
+            if (nameInput.value.trim() === '') {
+                showError('name', 'لطفاً نام را وارد کنید');
+                isValid = false;
+            } else {
+                clearError('name');
+            }
 
+            // اعتبارسنجی ایمیل
+            const emailInput = document.getElementById('email');
+            if (!/^\S+@\S+\.\S+$/.test(emailInput.value)) {
+                showError('email', 'ایمیل معتبر نیست');
+                isValid = false;
+            } else {
+                clearError('email');
+            }
+
+            // اعتبارسنجی پیام
+            const messageInput = document.getElementById('message');
+            if (messageInput.value.trim() === '') {
+                showError('message', 'لطفاً پیام را وارد کنید');
+                isValid = false;
+            } else {
+                clearError('message');
+            }
+
+            if (isValid) {
+                alert('پیام شما با موفقیت ارسال شد!');
+                this.reset();
+            }
+        });
+
+        function showError(fieldId, message) {
+            const field = document.getElementById(fieldId);
+            const errorMsg = field.nextElementSibling;
+            field.style.borderColor = '#d32f2f';
+            errorMsg.textContent = message;
+            errorMsg.style.display = 'block';
+        }
+
+        function clearError(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorMsg = field.nextElementSibling;
+            field.style.borderColor = '#BCAAA4';
+            errorMsg.style.display = 'none';
+        }
+
+        // عملکرد چت آنلاین
+        function toggleChat() {
+            const chatBody = document.querySelector('.chat-body');
+            const toggleIcon = document.querySelector('.toggle-icon');
+            
+            if (chatBody.style.display === 'block') {
+                chatBody.style.display = 'none';
+                toggleIcon.textContent = '+';
+            } else {
+                chatBody.style.display = 'block';
+                toggleIcon.textContent = '−';
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            
+            if (message) {
+                alert(پیام شما ارسال شد: "${message}"\nپاسخ به زودی ارسال می‌شود);
+                input.value = '';
+            }
+        }
+
+        // دکمه افزودن به سبد خرید
+        document.querySelectorAll('.product-card .btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productName = this.closest('.product-card').querySelector('.product-title').textContent;
+                alert(«${productName}» به سبد خرید اضافه شد!);
+            });
+        });
+    </script>
 </body>
-</html>
+</html>  
