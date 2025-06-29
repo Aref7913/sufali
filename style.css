@@ -1,98 +1,136 @@
-/* پارالاکس */
-.parallax {
-  background: url('https://images.unsplash.com/photo-1586448900401-87f0b7faa3d6') center/cover fixed;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  margin: 3rem 0;
+/* ===== طرح سنتی - بهبود یافته ===== */
+/* 1. پس‌زمینه اصلی */
+body {
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(239,235,233,0.8) 0%, rgba(255,255,255,1) 100%),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,50 Q50,30 70,50 T90,50" fill="none" stroke="%238D6E63" stroke-width="0.5" opacity="0.1"/></svg>') repeat;
 }
 
-.parallax::before {
-  content: '';
+/* 2. کارت‌های محصول */
+.product-card {
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  background: white;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.product-card::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(93, 64, 55, 0.4);
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #daa520, #b8860b);
+  opacity: 0.7;
 }
 
-.parallax-content {
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.product-image img {
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+/* 3. دکمه‌های طلایی */
+.btn {
+  background: linear-gradient(to right, var(--gold), #c69500);
+  color: var(--dark-clay) !important;
+  padding: 10px 25px;
+  border-radius: 30px;
   position: relative;
-  z-index: 1;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 2rem;
-  border-radius: 10px;
-  max-width: 80%;
-}
-
-/* خبرنامه */
-.newsletter {
-  background: #5D4037;
-  color: white;
-  padding: 3rem 0;
-  text-align: center;
-  margin: 4rem 0;
-}
-
-.newsletter-form {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  gap: 10px;
-}
-
-.newsletter-form input {
-  flex: 1;
-  padding: 12px 15px;
+  overflow: hidden;
+  font-weight: 600;
   border: none;
-  border-radius: 30px;
-  font-family: 'Vazirmatn', sans-serif;
+  box-shadow: 0 4px 8px rgba(218, 165, 32, 0.3);
 }
 
-/* بهبود منوی موبایل */
-@media (max-width: 768px) {
-  .main-nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .main-nav a {
-    display: block;
-    margin: 8px 0;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .parallax {
-    height: 300px;
-    background-attachment: scroll;
-  }
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(218, 165, 32, 0.4);
+  background: linear-gradient(to right, #c69500, var(--gold));
 }
 
-/* دسته‌بندی محصولات */
-.categories {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 2rem;
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--gold);
+  color: var(--gold) !important;
+  box-shadow: none;
 }
 
-.category-btn {
-  background: white;
-  border: 1px solid #8D6E63;
-  color: #8D6E63;
-  padding: 8px 20px;
-  border-radius: 30px;
-  cursor: pointer;
+.btn-outline:hover {
+  background: var(--gold);
+  color: var(--dark-clay) !important;
+}
+
+/* 4. عناوین سنتی */
+.section-title {
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, var(--gold), #b8860b);
+  border-radius: 2px;
+}
+
+/* 5. بهبود هدر */
+header {
+  background: linear-gradient(135deg, var(--dark-clay), #4e342e);
+  padding: 0.8rem 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.main-nav a {
+  border-bottom: 2px solid transparent;
   transition: all 0.3s;
 }
 
-.category-btn.active, .category-btn:hover {
-  background: #8D6E63;
-  color: white;
+.main-nav a:hover {
+  border-bottom: 2px solid var(--gold);
+  background: transparent;
+}
+
+/* 6. بهینه‌سازی موبایل */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .product-card {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  .btn {
+    padding: 8px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* 7. افکت‌های ظریف */
+.hero::after {
+  background: linear-gradient(45deg, rgba(93, 64, 55, 0.5), rgba(141, 110, 99, 0.3));
+}
+
+.parallax::before {
+  background: linear-gradient(45deg, rgba(93, 64, 55, 0.6), rgba(141, 110, 99, 0.4));
 }
