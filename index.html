@@ -16,6 +16,7 @@
             --accent: #FFECB3;
             --text: #4E342E;
             --bg: #FAF5F0;
+            --discount: #d32f2f;
         }
         * {
             margin: 0;
@@ -113,8 +114,10 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0,0,0,0.3);
         }
-        #products {
-            padding: 4rem 0;
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent) !important;
         }
         .section-title {
             text-align: center;
@@ -132,6 +135,29 @@
             margin: 10px auto;
             border-radius: 3px;
         }
+        
+        /* دسته‌بندی محصولات */
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+        .category-btn {
+            background: white;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -143,6 +169,18 @@
             overflow: hidden;
             box-shadow: 0 6px 15px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
+            position: relative;
+        }
+        .discount-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--discount);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 2;
         }
         .product-card:hover {
             transform: translateY(-10px);
@@ -151,6 +189,7 @@
         .product-image {
             height: 220px;
             overflow: hidden;
+            position: relative;
         }
         .product-image img {
             width: 100%;
@@ -175,11 +214,118 @@
             font-size: 1.2rem;
             margin: 1rem 0;
         }
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
         .rating {
             color: #FFD700;
             margin: 0.5rem 0;
             font-size: 1.2rem;
         }
+        
+        /* بخش نظرات مشتریان */
+        .testimonials {
+            background: #f9f9f9;
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 15px;
+        }
+        .testimonial-product {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        /* بخش بلاگ و داستان‌ها */
+        .blog-section {
+            padding: 4rem 0;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        /* بخش درباره ما */
+        .about-section {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .about-image img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* نمادهای اعتماد */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        .trust-badge {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .trust-badge i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        /* فرم تماس */
         .contact-section {
             padding: 4rem 0;
             background: #f5f5f5;
@@ -210,6 +356,59 @@
             font-size: 0.9rem;
             margin-top: 5px;
         }
+        
+        /* سفارشی‌سازی محصول */
+        .customization-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .customization-content {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* خبرنامه */
+        .newsletter {
+            background: var(--secondary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin: 4rem 0;
+        }
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
         footer {
             background: var(--secondary);
             color: var(--accent);
@@ -284,8 +483,15 @@
                 left: 10px;
                 bottom: 10px;
             }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- هدر -->
@@ -300,7 +506,9 @@
         <div class="container">
             <a href="#home">خانه</a>
             <a href="#products">محصولات</a>
-            <a href="about.html">درباره ما</a>
+            <a href="#about">درباره ما</a>
+            <a href="#blog">بلاگ</a>
+            <a href="#testimonials">نظرات</a>
             <a href="#contact">تماس</a>
         </div>
     </nav>
@@ -317,22 +525,37 @@
     <!-- محصولات -->
     <section id="products" class="container">
         <h2 class="section-title">محصولات ما</h2>
+        
+        <!-- دسته‌بندی محصولات -->
+        <div class="categories">
+            <button class="category-btn active" data-category="all">همه محصولات</button>
+            <button class="category-btn" data-category="decorative">دکوراتیو</button>
+            <button class="category-btn" data-category="functional">کاربردی</button>
+            <button class="category-btn" data-category="traditional">سنتي</button>
+            <button class="category-btn" data-category="discount">تخفیف‌دار</button>
+        </div>
+        
         <div class="products-grid">
             <!-- محصول ۱ -->
-            <div class="product-card">
+            <div class="product-card" data-category="functional">
+                <div class="discount-badge">20% تخفیف</div>
                 <div class="product-image">
                     <img src="https://images.unsplash.com/photo-1585109647336-9f779b83d9e4" alt="کوزه سفالی">
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">کوزه سفالی دست‌ساز</h3>
                     <div class="rating">★★★★★</div>
-                    <div class="price">۱۵۰,۰۰۰ تومان</div>
-                    <button class="btn">افزودن به سبد</button>
+                    <div class="price">
+                        <span class="old-price">۱۸۷,۰۰۰ تومان</span>
+                        ۱۵۰,۰۰۰ تومان
+                    </div>
+                    <button class="btn" onclick="addToCart('کوزه سفالی دست‌ساز')">افزودن به سبد</button>
+                    <button class="btn btn-outline" style="margin-top: 10px" onclick="openCustomization('کوزه سفالی دست‌ساز')">سفارشی سازی</button>
                 </div>
             </div>
 
             <!-- محصول ۲ -->
-            <div class="product-card">
+            <div class="product-card" data-category="decorative">
                 <div class="product-image">
                     <img src="https://images.unsplash.com/photo-1593288942460-e0f1c7e0a8d8" alt="مجسمه سفالی">
                 </div>
@@ -340,7 +563,44 @@
                     <h3 class="product-title">مجسمه سفالی</h3>
                     <div class="rating">★★★★☆</div>
                     <div class="price">۲۲۰,۰۰۰ تومان</div>
-                    <button class="btn">افزودن به سبد</button>
+                    <button class="btn" onclick="addToCart('مجسمه سفالی')">افزودن به سبد</button>
+                    <button class="btn btn-outline" style="margin-top: 10px" onclick="openCustomization('مجسمه سفالی')">سفارشی سازی</button>
+                </div>
+            </div>
+            
+            <!-- محصول ۳ -->
+            <div class="product-card" data-category="traditional discount">
+                <div class="discount-badge">15% تخفیف</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1595433707808-224b871d3b4f" alt="مجموعه قاب‌های سنتی">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">مجموعه قاب‌های سنتی</h3>
+                    <div class="rating">★★★★★</div>
+                    <div class="price">
+                        <span class="old-price">۲۳۵,۰۰۰ تومان</span>
+                        ۲۰۰,۰۰۰ تومان
+                    </div>
+                    <button class="btn" onclick="addToCart('مجموعه قاب‌های سنتی')">افزودن به سبد</button>
+                    <button class="btn btn-outline" style="margin-top: 10px" onclick="openCustomization('مجموعه قاب‌های سنتی')">سفارشی سازی</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش درباره ما -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">درباره هنر سفال</h2>
+            <div class="about-content">
+                <div>
+                    <h3>هنر اصیل ایرانی با قدمت 7000 ساله</h3>
+                    <p>کارگاه هنر سفال با هدف احیای هنر سفالگری سنتی ایران تأسیس شد. ما با بهره‌گیری از استادکاران باسابقه و استفاده از خاک مرغوب ، محصولاتی منحصر به فرد خلق می‌کنیم که هر کدام روایتی از تاریخ و فرهنگ غنی ایران زمین است.</p>
+                    <p>تمام محصولات ما به صورت کاملاً دست‌ساز و با تکنیک‌های سنتی مانند چرخ‌کاری، کنده‌کاری و نقاشی زیررنگ تولید می‌شوند. ما به کیفیت مواد اولیه و دوام محصولاتمان افتخار می‌کنیم.</p>
+                    <button class="btn" style="margin-top: 20px">داستان کامل ما</button>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1586448900401-87f0b7faa3d6" alt="کارگاه سفالگری">
                 </div>
             </div>
         </div>
@@ -353,6 +613,118 @@
             <img src="https://images.unsplash.com/photo-1585109647336-9f779b83d9e4" alt="اثر سفالی ۱">
             <img src="https://images.unsplash.com/photo-1593288942460-e0f1c7e0a8d8" alt="اثر سفالی ۲">
             <img src="https://images.unsplash.com/photo-1595433707808-224b871d3b4f" alt="اثر سفالی ۳">
+            <img src="https://images.unsplash.com/photo-1595433707808-224b871d3b4f" alt="اثر سفالی ۴">
+        </div>
+    </section>
+
+    <!-- بخش بلاگ -->
+    <section id="blog" class="blog-section container">
+        <h2 class="section-title">دانستنی‌های سفال</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1577982787983-e07c6730f2d3" alt="نگهداری سفال">
+                </div>
+                <div class="blog-content">
+                    <h3>راهنمای کامل نگهداری از سفال‌های دست‌ساز</h3>
+                    <p>چگونه آثار سفالی خود را برای سال‌ها زیبا و سالم نگه دارید؟ در این مقاله با بهترین روش‌های مراقبت از سفال آشنا می‌شوید.</p>
+                    <button class="btn btn-outline" style="margin-top: 15px">مطالعه بیشتر</button>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1516834474-48c0abc2a902" alt="تاریخچه سفال">
+                </div>
+                <div class="blog-content">
+                    <h3>سفال‌گری در ایران: از شوش تا لالجین</h3>
+                    <p>سیر تحول هنر سفال‌گری در ایران از 7000 سال پیش تا امروز و شناخت مراکز مهم سفال‌گری در ایران.</p>
+                    <button class="btn btn-outline" style="margin-top: 15px">مطالعه بیشتر</button>
+                </div>
+            </div>
+            
+            <div class="blog-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1549399542-7e5fbd7f5b99" alt="دکوراسیون با سفال">
+                </div>
+                <div class="blog-content">
+                    <h3>ایده‌های دکوراسیون با آثار سفالی</h3>
+                    <p>چگونه با آثار سفالی فضای منزل خود را گرم و اصیل کنید؟ ایده‌های خلاقانه برای استفاده از سفال در دکوراسیون.</p>
+                    <button class="btn btn-outline" style="margin-top: 15px">مطالعه بیشتر</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش نظرات مشتریان -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">نظرات مشتریان ما</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="فاطمه محمدی" class="testimonial-avatar">
+                        <div>
+                            <h3>فاطمه محمدی</h3>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"کوزه سفالی که خریدم واقعاً عالی بود! کیفیت ساخت فوق‌العاده داره و بعد از ۶ ماه استفاده هنوز مثل روز اولش میمونه."</p>
+                    <img src="https://images.unsplash.com/photo-1585109647336-9f779b83d9e4" alt="محصول خریداری شده" class="testimonial-product">
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="علی رضایی" class="testimonial-avatar">
+                        <div>
+                            <h3>علی رضایی</h3>
+                            <div class="rating">★★★★☆</div>
+                        </div>
+                    </div>
+                    <p>"سفارش مجسمه سفالی با طرح اختصاصی دادم. کار خیلی دقیق و باکیفیت انجام شد. فقط زمان تحویل کمی طول کشید که قابل قبوله برای کار دست‌ساز."</p>
+                    <img src="https://images.unsplash.com/photo-1593288942460-e0f1c7e0a8d8" alt="محصول خریداری شده" class="testimonial-product">
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="نرگس کریمی" class="testimonial-avatar">
+                        <div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نمادهای اعتماد -->
+    <div class="container">
+        <div class="trust-badges">
+            <div class="trust-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>پرداخت امن</span>
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-truck"></i>
+                <span>تحویل سریع</span>
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-undo"></i>
+                <span>تضمین بازگشت</span>
+            </div>
+            <div class="trust-badge">
+                <i class="fas fa-award"></i>
+                <span>اصالت کالا</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- خبرنامه -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>به خانواده هنر سفال بپیوندید</h2>
+            <p>با عضویت در خبرنامه، از جدیدترین محصولات، تخفیف‌های ویژه و مقالات آموزشی ما با خبر شوید</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="ایمیل خود را وارد کنید" required>
+                <button type="submit" class="btn">عضویت</button>
+            </form>
+            <p style="margin-top: 15px; font-size: 0.9rem">با عضویت، ۱۰٪ تخفیف برای اولین خرید دریافت می‌کنید!</p>
         </div>
     </section>
 
@@ -382,7 +754,8 @@
     <footer>
         <div class="container">
             <p>© ۱۴۰۳ هنر سفال - تمام حقوق محفوظ است</p>
-            <p>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸ | ایمیل: info@honaresofal.ir</p>
+            <p>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸ | sofali.accessory@gmail.com  </p>
+            <p>مهاباد ، پلاک ۱۲۳۴</p>
         </div>
     </footer>
 
@@ -396,6 +769,51 @@
             <div class="messages"></div>
             <input type="text" placeholder="پیام شما..." id="chat-input">
             <button class="btn" onclick="sendMessage()" style="margin-top: 10px; width: 100%">ارسال</button>
+        </div>
+    </div>
+    
+    <!-- مودال سفارشی‌سازی -->
+    <div id="customization-modal" class="customization-modal">
+        <div class="customization-content">
+            <span class="close-modal" onclick="closeCustomization()">&times;</span>
+            <h2 id="modal-product-title" style="margin-bottom: 20px">سفارشی‌سازی محصول</h2>
+            
+            <div class="form-group">
+                <label>طرح مورد نظر:</label>
+                <select class="form-control">
+                    <option>طرح سنتی (پیش‌فرض)</option>
+                    <option>طرح مدرن</option>
+                    <option>طرح هندسی</option>
+                    <option>طرح حیوانات</option>
+                    <option>طرح اختصاصی (ارسال فایل)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>رنگ پایه:</label>
+                <div style="display: flex; gap: 10px; margin-top: 10px">
+                    <div style="width: 30px; height: 30px; background: #8D6E63; border-radius: 50%; cursor: pointer; border: 2px solid #5D4037"></div>
+                    <div style="width: 30px; height: 30px; background: #5D4037; border-radius: 50%; cursor: pointer"></div>
+                    <div style="width: 30px; height: 30px; background: #A1887F; border-radius: 50%; cursor: pointer"></div>
+                    <div style="width: 30px; height: 30px; background: #D7CCC8; border-radius: 50%; cursor: pointer"></div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>افزودن متن شخصی (اختیاری):</label>
+                <input type="text" placeholder="متن مورد نظر خود را وارد کنید" style="width: 100%; padding: 10px; margin-top: 5px">
+            </div>
+            
+            <div class="form-group">
+                <label>اندازه:</label>
+                <div style="display: flex; gap: 10px">
+                    <label><input type="radio" name="size"> کوچک</label>
+                    <label><input type="radio" name="size" checked> متوسط</label>
+                    <label><input type="radio" name="size"> بزرگ</label>
+                </div>
+            </div>
+            
+            <button class="btn" style="margin-top: 20px; width: 100%">ثبت سفارش اختصاصی</button>
         </div>
     </div>
 
@@ -479,11 +897,62 @@
         }
 
         // دکمه افزودن به سبد خرید
-        document.querySelectorAll('.product-card .btn').forEach(btn => {
+        function addToCart(productName) {
+            alert(`«${productName}» به سبد خرید اضافه شد!`);
+        }
+        
+        // سیستم دسته‌بندی محصولات
+        document.querySelectorAll('.category-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                const productName = this.closest('.product-card').querySelector('.product-title').textContent;
-                alert(`«${productName}» به سبد خرید اضافه شد!`);
+                // حذف کلاس active از همه دکمه‌ها
+                document.querySelectorAll('.category-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                
+                // اضافه کردن active به دکمه فعلی
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                const products = document.querySelectorAll('.product-card');
+                
+                products.forEach(product => {
+                    if (category === 'all' || product.dataset.category.includes(category)) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
             });
+        });
+        
+        // سیستم سفارشی‌سازی
+        function openCustomization(productName) {
+            document.getElementById('modal-product-title').textContent = `سفارشی‌سازی ${productName}`;
+            document.getElementById('customization-modal').style.display = 'flex';
+        }
+        
+        function closeCustomization() {
+            document.getElementById('customization-modal').style.display = 'none';
+        }
+        
+        // بستن مودال با کلیک خارج از آن
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('customization-modal');
+            if (event.target === modal) {
+                closeCustomization();
+            }
+        });
+        
+        // عضویت در خبرنامه
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            if (/^\S+@\S+\.\S+$/.test(email)) {
+                alert(`ایمیل ${email} با موفقیت ثبت شد! کد تخفیف 10% برای شما ایمیل شد.`);
+                this.reset();
+            } else {
+                alert('لطفاً یک ایمیل معتبر وارد کنید');
+            }
         });
     </script>
 </body>
