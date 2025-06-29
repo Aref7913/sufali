@@ -33,6 +33,7 @@
                 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,50 Q50,30 70,50 T90,50" fill="none" stroke="%238D6E63" stroke-width="0.5" opacity="0.2"/></svg>') repeat;
             color: var(--text);
             line-height: 1.8;
+            padding-top: 120px; /* اضافه شده برای هدر ثابت */
         }
         
         .container {
@@ -41,85 +42,135 @@
             padding: 0 20px;
         }
         
-        /* هدر و منو */
-        header {
+        /* هدر و منو - تغییرات اساسی */
+        .fixed-header {
             background: linear-gradient(135deg, var(--dark-clay), var(--clay));
             padding: 1rem 0;
-            position: sticky;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 1000;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
         .logo {
             font-size: 2rem;
             color: var(--gold);
-            text-align: center;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
         }
         
-        .main-nav {
-            background: var(--dark-clay);
-            padding: 1rem 0;
+        .logo i {
+            margin-left: 10px;
+            font-size: 1.8rem;
         }
         
         .main-nav ul {
             display: flex;
-            justify-content: center;
             list-style: none;
         }
         
         .main-nav a {
             color: var(--cream);
-            padding: 0.8rem 1.5rem;
+            padding: 0.8rem 1.2rem;
             text-decoration: none;
             margin: 0 5px;
             border-radius: 30px;
             font-weight: 500;
+            transition: all 0.3s;
         }
         
         .main-nav a:hover {
-            background: rgba(0,0,0,0.2);
+            background: rgba(255,255,255,0.1);
             color: var(--gold);
         }
         
-        /* بخش اصلی */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .cart-icon {
+            position: relative;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            background: var(--gold);
+            color: var(--dark-clay);
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* بخش اصلی - بهبود یافته */
         .hero {
-            background: url('https://images.unsplash.com/photo-1570824104453-ceaf22b7e59a') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.4), url('https://images.unsplash.com/photo-1570824104453-ceaf22b7e59a') center/cover;
             height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
-        }
-        
-        .hero::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.3);
+            margin-top: -20px;
         }
         
         .hero-content {
-            position: relative;
-            z-index: 1;
             color: white;
             max-width: 800px;
             padding: 2rem;
         }
         
         .hero h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1.5rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+            line-height: 1.3;
         }
         
-        /* دکمه‌ها */
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+        }
+        
+        /* دکمه‌ها - بهبود یافته */
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, var(--gold), #B8860B);
@@ -128,28 +179,18 @@
             border-radius: 30px;
             font-weight: 700;
             margin-top: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             border: none;
             cursor: pointer;
             font-size: 1.1rem;
             position: relative;
             overflow: hidden;
-        }
-        
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(to bottom right, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
-            transform: rotate(30deg);
+            transition: all 0.3s;
         }
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
             background: linear-gradient(135deg, #B8860B, var(--gold));
         }
         
@@ -164,7 +205,7 @@
             color: var(--dark-clay) !important;
         }
         
-        /* بخش محصولات */
+        /* بخش محصولات - بهبود یافته */
         #products {
             padding: 4rem 0;
         }
@@ -172,7 +213,7 @@
         .section-title {
             text-align: center;
             margin-bottom: 2rem;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--dark-clay);
             position: relative;
         }
@@ -181,9 +222,9 @@
             content: "";
             display: block;
             width: 100px;
-            height: 3px;
+            height: 4px;
             background: var(--clay);
-            margin: 10px auto;
+            margin: 15px auto;
             border-radius: 3px;
         }
         
@@ -204,6 +245,7 @@
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s;
+            font-weight: 500;
         }
         
         .category-btn.active, .category-btn:hover {
@@ -211,7 +253,7 @@
             color: white;
         }
         
-        /* کارت محصولات */
+        /* کارت محصولات - بهبود یافته */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -230,17 +272,6 @@
             border: 1px solid var(--cream);
         }
         
-        .product-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0,5 C20,10 30,0 50,5 S80,0 100,5" fill="none" stroke="%23D4AF37" stroke-width="0.5"/></svg>') repeat-x;
-            opacity: 0.7;
-        }
-        
         .discount-badge {
             position: absolute;
             top: 15px;
@@ -251,13 +282,14 @@
             border-radius: 20px;
             font-size: 0.9rem;
             z-index: 2;
+            font-weight: bold;
         }
         
         .product-card:hover {
             transform: translateY(-10px);
             box-shadow: 
-                0 7px 14px rgba(0,0,0,0.1),
-                0 5px 5px rgba(93, 64, 55, 0.1);
+                0 10px 20px rgba(0,0,0,0.15),
+                0 8px 10px rgba(93, 64, 55, 0.15);
         }
         
         .product-image {
@@ -271,11 +303,10 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
-            filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
         }
         
         .product-card:hover .product-image img {
-            transform: scale(1.05);
+            transform: scale(1.08);
         }
         
         .product-info {
@@ -286,59 +317,83 @@
             font-size: 1.3rem;
             color: var(--dark-clay);
             margin-bottom: 0.5rem;
+            min-height: 3.5rem;
         }
         
         .price {
             color: var(--clay);
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin: 1rem 0;
         }
         
         .old-price {
             text-decoration: line-through;
             color: #999;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             margin-left: 10px;
         }
         
         .rating {
             color: #FFD700;
             margin: 0.5rem 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
-        /* بخش پارالاکس */
-        .parallax {
-            background: url('https://images.unsplash.com/photo-1586448900401-87f0b7faa3d6') center/cover fixed;
-            height: 400px;
-            display: flex;
+        /* بخش درباره ما - اضافه شده */
+        #about {
+            padding: 4rem 0;
+            background: var(--cream);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
         }
         
-        .parallax::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .about-image img {
             width: 100%;
-            height: 100%;
-            background: rgba(93, 64, 55, 0.4);
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
         }
         
-        .parallax-content {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 2rem;
-            border-radius: 10px;
-            max-width: 80%;
+        .about-image:hover img {
+            transform: scale(1.05);
         }
         
-        /* بخش نظرات مشتریان */
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--dark-clay);
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefits {
+            margin-top: 2rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-item i {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-left: 10px;
+            margin-top: 5px;
+        }
+        
+        /* بخش نظرات مشتریان - بهبود یافته */
         .testimonials {
             background: #f9f9f9;
             padding: 4rem 0;
@@ -354,30 +409,30 @@
         
         .testimonial-card {
             background: white;
-            padding: 1.5rem;
+            padding: 1.8rem;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
         
         .testimonial-header {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         
         .testimonial-avatar {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             object-fit: cover;
             margin-left: 15px;
-        }
-        
-        .testimonial-product {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            object-fit: cover;
+            border: 3px solid var(--gold);
         }
         
         /* بخش بلاگ */
@@ -395,57 +450,39 @@
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         
         .blog-content {
-            padding: 1.5rem;
+            padding: 1.8rem;
         }
         
-        /* فرم تماس */
-        .contact-section {
-            padding: 4rem 0;
-            background: #f5f5f5;
-        }
-        
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--light-clay);
-            border-radius: 5px;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        .error-msg {
-            color: var(--discount);
-            display: none;
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-        
-        /* خبرنامه */
+        /* خبرنامه - بهبود یافته */
         .newsletter {
-            background: var(--dark-clay);
+            background: linear-gradient(135deg, var(--dark-clay), var(--clay));
             color: white;
-            padding: 3rem 0;
+            padding: 4rem 0;
             text-align: center;
             margin: 4rem 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 Q40,0 60,20 T80,20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+            background-size: cover;
+        }
+        
+        .newsletter h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
         }
         
         .newsletter-form {
@@ -457,19 +494,94 @@
         
         .newsletter-form input {
             flex: 1;
-            padding: 12px 15px;
+            padding: 14px 20px;
             border: none;
             border-radius: 30px;
             font-family: 'Vazirmatn', sans-serif;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         
-        /* فوتر */
+        /* فوتر - بهبود یافته */
         footer {
             background: var(--dark-clay);
             color: var(--cream);
-            text-align: center;
-            padding: 2rem 0;
+            padding: 3rem 0 2rem;
             margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-left: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
         }
         
         .trust-badges {
@@ -488,166 +600,172 @@
             align-items: center;
             gap: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            min-width: 200px;
         }
         
         .trust-badge i {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--clay);
         }
         
-        /* چت آنلاین */
-        .chat-widget {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 300px;
-            background: white;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            z-index: 1000;
+        .trust-badge-content h4 {
+            color: var(--dark-clay);
+            margin-bottom: 5px;
         }
         
-        .chat-header {
-            background: var(--clay);
-            color: white;
-            padding: 12px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .trust-badge-content p {
+            color: #777;
+            font-size: 0.9rem;
         }
         
-        .chat-body {
-            display: none;
-            padding: 15px;
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.95rem;
+            color: var(--light-clay);
         }
         
-        .chat-body input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        /* نسخه موبایل - بهبود یافته */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                max-width: 80%;
+                margin: 0 auto 2rem;
+            }
         }
         
-        /* مودال سفارشی‌سازی */
-        .customization-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .customization-content {
-            background: white;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 12px;
-            padding: 2rem;
-            position: relative;
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--clay);
-        }
-        
-        /* نسخه موبایل */
         @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            
+            .fixed-header {
+                padding: 0.8rem 0;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                background: var(--dark-clay);
+                width: 80%;
+                height: calc(100vh - 80px);
+                transition: all 0.4s ease;
+                padding: 2rem;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            }
+            
+            .main-nav.active {
+                right: 0;
+            }
+            
             .main-nav ul {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
             }
             
             .main-nav a {
                 display: block;
-                margin: 8px 0;
+                margin: 15px 0;
+                padding: 0.8rem 1rem;
+                font-size: 1.1rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
             }
             
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .section-title {
                 font-size: 1.8rem;
             }
             
-            .chat-widget {
-                width: 250px;
-                left: 10px;
-                bottom: 10px;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
             .newsletter-form {
                 flex-direction: column;
             }
             
-            .parallax {
-                height: 300px;
-                background-attachment: scroll;
+            .footer-content {
+                grid-template-columns: 1fr;
             }
         }
         
         @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
             .products-grid, .testimonials-grid, .blog-grid {
                 grid-template-columns: 1fr;
             }
             
             .hero {
-                height: 50vh;
+                height: 60vh;
+            }
+            
+            .trust-badge {
+                min-width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- هدر -->
-    <header>
-        <div class="container">
-            <div class="logo">هنر سفال</div>
+    <!-- هدر ثابت با طراحی جدید -->
+    <header class="fixed-header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-hands"></i>
+                هنر سفال
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home">خانه</a></li>
+                    <li><a href="#products">محصولات</a></li>
+                    <li><a href="#about">درباره ما</a></li>
+                    <li><a href="#blog">بلاگ</a></li>
+                    <li><a href="#testimonials">نظرات</a></li>
+                    <li><a href="#contact">تماس</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
-
-    <!-- منو -->
-    <nav class="main-nav">
-        <div class="container">
-            <ul>
-                <li><a href="#home">خانه</a></li>
-                <li><a href="#products">محصولات</a></li>
-                <li><a href="#about">درباره ما</a></li>
-                <li><a href="#blog">بلاگ</a></li>
-                <li><a href="#testimonials">نظرات</a></li>
-                <li><a href="#contact">تماس</a></li>
-            </ul>
-        </div>
-    </nav>
 
     <!-- بخش اصلی -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>هنر اصیل، زیبایی ماندگار</h1>
-            <p>سفال‌های دست‌ساز با عشق و مهارت ساخته شده‌اند</p>
-            <a href="#products" class="btn">مشاهده محصولات</a>
+            <p>سفال‌های دست‌ساز با عشق و مهارت ساخته شده‌اند، هر قطعه روایتی از هنر دست‌های ایرانی است</p>
+            <div>
+                <a href="#products" class="btn">مشاهده محصولات</a>
+                <a href="#discount" class="btn btn-outline" style="margin-right: 15px">تخفیف‌های ویژه</a>
+            </div>
+            <p style="margin-top: 25px; font-size: 0.95rem">
+                <i class="fas fa-truck" style="margin-left: 8px"></i>
+                ارسال رایگان برای خریدهای بالای ۲۰۰ هزار تومان
+            </p>
         </div>
     </section>
 
     <!-- محصولات -->
     <section id="products" class="container">
-        <h2 class="section-title">محصولات ما</h2>
+        <h2 class="section-title">محصولات پرفروش</h2>
         
         <!-- دسته‌بندی محصولات -->
         <div class="categories">
@@ -667,13 +785,19 @@
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">کوزه سفالی دست‌ساز</h3>
-                    <div class="rating">★★★★★</div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span style="color: #777; font-size: 0.9rem; margin-right: 8px">(۴۲)</span>
+                    </div>
                     <div class="price">
                         <span class="old-price">۱۸۷,۰۰۰ تومان</span>
                         ۱۵۰,۰۰۰ تومان
                     </div>
-                    <button class="btn" onclick="addToCart('کوزه سفالی دست‌ساز')">افزودن به سبد</button>
-                    <button class="btn btn-outline" style="margin-top: 10px" onclick="openCustomization('کوزه سفالی دست‌ساز')">سفارشی سازی</button>
+                    <button class="btn" onclick="addToCart('کوزه سفالی دست‌ساز', 150000)">افزودن به سبد</button>
                 </div>
             </div>
 
@@ -683,11 +807,17 @@
                     <img src="https://images.unsplash.com/photo-1593288942460-e0f1c7e0a8d8" alt="مجسمه سفالی">
                 </div>
                 <div class="product-info">
-                    <h3 class="product-title">مجسمه سفالی</h3>
-                    <div class="rating">★★★★☆</div>
+                    <h3 class="product-title">مجسمه سفالی زن روستایی</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span style="color: #777; font-size: 0.9rem; margin-right: 8px">(۲۸)</span>
+                    </div>
                     <div class="price">۲۲۰,۰۰۰ تومان</div>
-                    <button class="btn" onclick="addToCart('مجسمه سفالی')">افزودن به سبد</button>
-                    <button class="btn btn-outline" style="margin-top: 10px" onclick="openCustomization('مجسمه سفالی')">سفارشی سازی</button>
+                    <button class="btn" onclick="addToCart('مجسمه سفالی زن روستایی', 220000)">افزودن به سبد</button>
                 </div>
             </div>
             
@@ -699,31 +829,92 @@
                 </div>
                 <div class="product-info">
                     <h3 class="product-title">مجموعه قاب‌های سنتی</h3>
-                    <div class="rating">★★★★★</div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span style="color: #777; font-size: 0.9rem; margin-right: 8px">(۶۳)</span>
+                    </div>
                     <div class="price">
                         <span class="old-price">۲۳۵,۰۰۰ تومان</span>
                         ۲۰۰,۰۰۰ تومان
                     </div>
-                    <button class="btn" onclick="addToCart('مجموعه قاب‌های سنتی')">افزودن به سبد</button>
-                    <button class="btn btn-outline" style="margin-top: 10px" onclick="openCustomization('مجموعه قاب‌های سنتی')">سفارشی سازی</button>
+                    <button class="btn" onclick="addToCart('مجموعه قاب‌های سنتی', 200000)">افزودن به سبد</button>
+                </div>
+            </div>
+            
+            <!-- محصول ۴ -->
+            <div class="product-card" data-category="functional">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1586448900401-87f0b7faa3d6" alt="گلدان سفالی">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">گلدان سفالی طرح دار</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span style="color: #777; font-size: 0.9rem; margin-right: 8px">(۵۱)</span>
+                    </div>
+                    <div class="price">۱۷۵,۰۰۰ تومان</div>
+                    <button class="btn" onclick="addToCart('گلدان سفالی طرح دار', 175000)">افزودن به سبد</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- بخش پارالاکس -->
-    <section class="parallax">
-        <div class="parallax-content">
-            <h2>هنر سفالگری ایرانی</h2>
-            <p>با 7000 سال سابقه درخشان، سفالگری یکی از اصیل‌ترین هنرهای ایرانی است</p>
-            <button class="btn">بیشتر بخوانید</button>
+    <!-- بخش درباره ما - اضافه شده -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">درباره هنر سفال</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e" alt="کارگاه سفالگری">
+                </div>
+                <div class="about-text">
+                    <h2>هنر دست‌ساز با اصالت ایرانی</h2>
+                    <p>هنر سفال با بیش از ۱۵ سال سابقه درخشان در زمینه تولید و عرضه سفال‌های دست‌ساز، با بهره‌گیری از هنرمندان بومی و مواد اولیه مرغوب، آثاری ماندگار و منحصربفرد خلق می‌کند. هر قطعه در کارگاه‌های ما با دقت و ظرافت خاصی ساخته شده و روایتی از فرهنگ و هنر غنی ایرانی را به نمایش می‌گذارد.</p>
+                    
+                    <div class="benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>مواد اولیه مرغوب</h3>
+                                <p>استفاده از بهترین خاک رس و رنگ‌های طبیعی و غیرسمی</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>ضمانت اصالت</h3>
+                                <p>تضمین اصل بودن مواد اولیه و دست‌ساز بودن محصولات</p>
+                            </div>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h3>بازگشت ۷ روزه</h3>
+                                <p>امکان بازگشت محصول تا ۷ روز پس از تحویل</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn" style="margin-top: 20px">تماس با ما</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- بخش نظرات مشتریان -->
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <h2 class="section-title">نظرات مشتریان ما</h2>
+            <h2 class="section-title">تجربه مشتریان ما</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
@@ -733,8 +924,11 @@
                             <div class="rating">★★★★★</div>
                         </div>
                     </div>
-                    <p>"کوزه سفالی که خریدم واقعاً عالی بود! کیفیت ساخت فوق‌العاده داره و بعد از ۶ ماه استفاده هنوز مثل روز اولش میمونه."</p>
-                    <img src="https://images.unsplash.com/photo-1585109647336-9f779b83d9e4" alt="محصول خریداری شده" class="testimonial-product">
+                    <p>"کوزه سفالی که خریدم واقعاً عالی بود! کیفیت ساخت فوق‌العاده داره و بعد از ۶ ماه استفاده هنوز مثل روز اولش میمونه. حمل و نقل هم خیلی سریع و بسته‌بندی حرفه‌ای بود."</p>
+                    <div style="margin-top: 15px; color: #777; font-size: 0.9rem">
+                        <i class="fas fa-calendar-alt" style="margin-left: 8px"></i>
+                        ۱۵ مرداد ۱۴۰۲
+                    </div>
                 </div>
                 
                 <div class="testimonial-card">
@@ -745,14 +939,28 @@
                             <div class="rating">★★★★☆</div>
                         </div>
                     </div>
-                    <p>"سفارش مجسمه سفالی با طرح اختصاصی دادم. کار خیلی دقیق و باکیفیت انجام شد. فقط زمان تحویل کمی طول کشید که قابل قبوله برای کار دست‌ساز."</p>
-                    <img src="https://images.unsplash.com/photo-1593288942460-e0f1c7e0a8d8" alt="محصول خریداری شده" class="testimonial-product">
+                    <p>"سفارش مجسمه سفالی با طرح اختصاصی دادم. کار خیلی دقیق و باکیفیت انجام شد. فقط زمان تحویل کمی طول کشید که قابل قبوله برای کار دست‌ساز. از پشتیبانی هم تشکر می‌کنم که پیگیر سفارش بودن."</p>
+                    <div style="margin-top: 15px; color: #777; font-size: 0.9rem">
+                        <i class="fas fa-calendar-alt" style="margin-left: 8px"></i>
+                        ۲ تیر ۱۴۰۲
+                    </div>
                 </div>
                 
                 <div class="testimonial-card">
                     <div class="testimonial-header">
                         <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="نرگس کریمی" class="testimonial-avatar">
                         <div>
+                            <h3>نرگس کریمی</h3>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"این دومین خریدم از هنر سفاله. هر دو بار کیفیت محصولات عالی بود. مجموعه قاب‌های سنتی رو برای هدیه تولد خریدم که بسیار مورد توجه قرار گرفت. قیمت‌ها هم نسبت به کیفیت کاملاً منصفانه‌ست."</p>
+                    <div style="margin-top: 15px; color: #777; font-size: 0.9rem">
+                        <i class="fas fa-calendar-alt" style="margin-left: 8px"></i>
+                        ۵ خرداد ۱۴۰۲
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -804,7 +1012,10 @@
                 <input type="email" placeholder="ایمیل خود را وارد کنید" required>
                 <button type="submit" class="btn">عضویت</button>
             </form>
-            <p style="margin-top: 15px; font-size: 0.9rem">با عضویت، ۱۰٪ تخفیف برای اولین خرید دریافت می‌کنید!</p>
+            <p style="margin-top: 15px; font-size: 0.95rem">
+                <i class="fas fa-gift" style="margin-left: 8px"></i>
+                با عضویت، ۱۰٪ تخفیف برای اولین خرید دریافت می‌کنید!
+            </p>
         </div>
     </section>
 
@@ -812,109 +1023,137 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <h2 class="section-title">تماس با ما</h2>
-            <form id="contact-form" class="contact-form">
-                <div class="form-group">
-                    <input type="text" id="name" placeholder="نام کامل" required>
-                    <small class="error-msg"></small>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem">
+                <div>
+                    <h3 style="color: var(--dark-clay); margin-bottom: 1.5rem">اطلاعات تماس</h3>
+                    <div style="margin-bottom: 1.5rem">
+                        <p>
+                            <i class="fas fa-map-marker-alt" style="margin-left: 10px; color: var(--clay)"></i>
+                            مهاباد ، خیابان اَوین ، پلاک ۱۲۳۴
+                        </p>
+                        <p>
+                            <i class="fas fa-phone" style="margin-left: 10px; color: var(--clay)"></i>
+                            ۰۲۱-۱۲۳۴۵۶۷۸
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope" style="margin-left: 10px; color: var(--clay)"></i>
+                            sofal.accessory@gmail.com
+                        </p>
+                    </div>
+                    
+                    <h3 style="color: var(--dark-clay); margin-bottom: 1.5rem">ساعات کاری</h3>
+                    <p>شنبه تا چهارشنبه: ۸:۳۰ صبح تا ۴:۳۰ بعدازظهر</p>
+                    <p>پنجشنبه: ۸:۳۰ صبح تا ۱۲:۳۰ ظهر</p>
                 </div>
-                <div class="form-group">
-                    <input type="email" id="email" placeholder="ایمیل" required>
-                    <small class="error-msg"></small>
+                
+                <div>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="نام کامل" required>
+                            <small class="error-msg"></small>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="ایمیل" required>
+                            <small class="error-msg"></small>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="پیام شما..." required></textarea>
+                            <small class="error-msg"></small>
+                        </div>
+                        <button type="submit" class="btn">ارسال پیام</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <textarea id="message" placeholder="پیام شما..." required></textarea>
-                    <small class="error-msg"></small>
-                </div>
-                <button type="submit" class="btn">ارسال پیام</button>
-            </form>
+            </div>
         </div>
     </section>
 
     <!-- فوتر -->
     <footer>
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>دسترسی سریع</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-left"></i> خانه</a></li>
+                        <li><a href="#products"><i class="fas fa-chevron-left"></i> محصولات</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-left"></i> درباره ما</a></li>
+                        <li><a href="#blog"><i class="fas fa-chevron-left"></i> بلاگ</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-left"></i> تماس با ما</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>خدمات مشتریان</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> سوالات متداول</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> شرایط بازگشت</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> حریم خصوصی</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> راهنمای خرید</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> رویه ارسال سفارشات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>ارتباط با ما</h3>
+                    <p>
+                        <i class="fas fa-map-marker-alt" style="margin-left: 10px"></i>
+                        مهاباد ، خیابان اَوین ، پلاک ۱۲۳۴
+                    </p>
+                    <p>
+                        <i class="fas fa-phone" style="margin-left: 10px"></i>
+                        ۰۲۱-۱۲۳۴۵۶۷۸
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope" style="margin-left: 10px"></i>
+                        sofal.accessory@gmail.com
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
             <div class="trust-badges">
                 <div class="trust-badge">
                     <i class="fas fa-shield-alt"></i>
-                    <span>پرداخت امن</span>
+                    <div class="trust-badge-content">
+                        <h4>پرداخت امن</h4>
+                        <p>پرداخت آنلاین با درگاه بانکی</p>
+                    </div>
                 </div>
                 <div class="trust-badge">
                     <i class="fas fa-truck"></i>
-                    <span>تحویل سریع</span>
+                    <div class="trust-badge-content">
+                        <h4>تحویل سریع</h4>
+                        <p>ارسال سریع به سراسر کشور</p>
+                    </div>
                 </div>
                 <div class="trust-badge">
                     <i class="fas fa-undo"></i>
-                    <span>تضمین بازگشت</span>
+                    <div class="trust-badge-content">
+                        <h4>تضمین بازگشت</h4>
+                        <p>۷ روز ضمانت بازگشت کالا</p>
+                    </div>
                 </div>
                 <div class="trust-badge">
                     <i class="fas fa-award"></i>
-                    <span>اصالت کالا</span>
+                    <div class="trust-badge-content">
+                        <h4>اصالت کالا</h4>
+                        <p>تضمین اصل بودن مواد اولیه</p>
+                    </div>
                 </div>
             </div>
             
-            <p>© ۱۴۰۳ هنر سفال - تمام حقوق محفوظ است</p>
-            <p>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸ | ایمیل: sofal.accessory@gmail.com</p>
-            <p>مهاباد ، خیابان اَوین ، پلاک ۱۲۳۴</p>
+            <div class="copyright">
+                <p>© ۱۴۰۳ هنر سفال - تمام حقوق محفوظ است</p>
+                <p>طراحی و توسعه با <i class="fas fa-heart" style="color: #d32f2f"></i> در ایران</p>
+            </div>
         </div>
     </footer>
-
-    <!-- چت آنلاین -->
-    <div id="chat-widget" class="chat-widget">
-        <div class="chat-header" onclick="toggleChat()">
-            <span>پرسش از ما</span>
-            <span class="toggle-icon">+</span>
-        </div>
-        <div class="chat-body">
-            <div class="messages"></div>
-            <input type="text" placeholder="پیام شما..." id="chat-input">
-            <button class="btn" onclick="sendMessage()" style="margin-top: 10px; width: 100%">ارسال</button>
-        </div>
-    </div>
-    
-    <!-- مودال سفارشی‌سازی -->
-    <div id="customization-modal" class="customization-modal">
-        <div class="customization-content">
-            <span class="close-modal" onclick="closeCustomization()">&times;</span>
-            <h2 id="modal-product-title" style="margin-bottom: 20px">سفارشی‌سازی محصول</h2>
-            
-            <div class="form-group">
-                <label>طرح مورد نظر:</label>
-                <select class="form-control">
-                    <option>طرح سنتی (پیش‌فرض)</option>
-                    <option>طرح مدرن</option>
-                    <option>طرح هندسی</option>
-                    <option>طرح حیوانات</option>
-                    <option>طرح اختصاصی (ارسال فایل)</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label>رنگ پایه:</label>
-                <div style="display: flex; gap: 10px; margin-top: 10px">
-                    <div style="width: 30px; height: 30px; background: #8D6E63; border-radius: 50%; cursor: pointer; border: 2px solid #5D4037"></div>
-                    <div style="width: 30px; height: 30px; background: #5D4037; border-radius: 50%; cursor: pointer"></div>
-                    <div style="width: 30px; height: 30px; background: #A1887F; border-radius: 50%; cursor: pointer"></div>
-                    <div style="width: 30px; height: 30px; background: #D7CCC8; border-radius: 50%; cursor: pointer"></div>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label>افزودن متن شخصی (اختیاری):</label>
-                <input type="text" placeholder="متن مورد نظر خود را وارد کنید" style="width: 100%; padding: 10px; margin-top: 5px">
-            </div>
-            
-            <div class="form-group">
-                <label>اندازه:</label>
-                <div style="display: flex; gap: 10px">
-                    <label><input type="radio" name="size"> کوچک</label>
-                    <label><input type="radio" name="size" checked> متوسط</label>
-                    <label><input type="radio" name="size"> بزرگ</label>
-                </div>
-            </div>
-            
-            <button class="btn" style="margin-top: 20px; width: 100%">ثبت سفارش اختصاصی</button>
-        </div>
-    </div>
 
     <script>
         // ======= اسکریپت‌های سایت =======
@@ -971,35 +1210,27 @@
             errorMsg.style.display = 'none';
         }
 
-        // عملکرد چت آنلاین
-        function toggleChat() {
-            const chatBody = document.querySelector('.chat-body');
-            const toggleIcon = document.querySelector('.toggle-icon');
+        // عملکرد سبد خرید
+        let cartCount = 0;
+        
+        function addToCart(productName, price) {
+            cartCount++;
+            document.querySelector('.cart-count').textContent = cartCount;
             
-            if (window.getComputedStyle(chatBody).display === 'block') {
-                chatBody.style.display = 'none';
-                toggleIcon.textContent = '+';
-            } else {
-                chatBody.style.display = 'block';
-                toggleIcon.textContent = '−';
-            }
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chat-input');
-            const message = input.value.trim();
+            // ایجاد انیمیشن
+            const cartIcon = document.querySelector('.cart-icon');
+            cartIcon.style.animation = 'bounce 0.5s';
+            setTimeout(() => {
+                cartIcon.style.animation = '';
+            }, 500);
             
-            if (message) {
-                alert(`پیام شما ارسال شد: "${message}"\nپاسخ به زودی ارسال می‌شود`);
-                input.value = '';
-            }
-        }
-
-        // دکمه افزودن به سبد خرید
-        function addToCart(productName) {
-            alert(`«${productName}» به سبد خرید اضافه شد!`);
+            alert(`«${productName}» به سبد خرید اضافه شد!\nقیمت: ${price.toLocaleString()} تومان`);
         }
         
+        function toggleCart() {
+            alert('سبد خرید شما:\n\nکوزه سفالی دست‌ساز - ۱۵۰,۰۰۰ تومان\nمجسمه سفالی زن روستایی - ۲۲۰,۰۰۰ تومان\n\nجمع کل: ۳۷۰,۰۰۰ تومان');
+        }
+
         // سیستم دسته‌بندی محصولات
         document.querySelectorAll('.category-btn').forEach(btn => {
             btn.addEventListener('click', function() {
@@ -1024,35 +1255,63 @@
             });
         });
         
-        // سیستم سفارشی‌سازی
-        function openCustomization(productName) {
-            document.getElementById('modal-product-title').textContent = `سفارشی‌سازی ${productName}`;
-            document.getElementById('customization-modal').style.display = 'flex';
+        // منوی موبایل
+        function toggleMenu() {
+            const nav = document.querySelector('.main-nav');
+            nav.classList.toggle('active');
         }
-        
-        function closeCustomization() {
-            document.getElementById('customization-modal').style.display = 'none';
-        }
-        
-        // بستن مودال با کلیک خارج از آن
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('customization-modal');
-            if (event.target === modal) {
-                closeCustomization();
-            }
-        });
         
         // عضویت در خبرنامه
         document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const email = this.querySelector('input[type="email"]').value;
             if (/^\S+@\S+\.\S+$/.test(email)) {
-                alert(`ایمیل ${email} با موفقیت ثبت شد! کد تخفیف 10% برای شما ایمیل شد.`);
+                alert(`ایمیل ${email} با موفقیت ثبت شد!\nکد تخفیف 10% برای شما ایمیل شد.`);
                 this.reset();
             } else {
                 alert('لطفاً یک ایمیل معتبر وارد کنید');
             }
         });
+        
+        // انیمیشن‌های اسکرول
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // بستن منوی موبایل اگر باز است
+                    document.querySelector('.main-nav').classList.remove('active');
+                }
+            });
+        });
+        
+        // افزودن افکت به دکمه‌ها هنگام هاور
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // افزودن انیمیشن به کارت‌ها
+        document.querySelectorAll('.product-card, .testimonial-card, .blog-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
     </script>
 </body>
-            </html>
+</html>
