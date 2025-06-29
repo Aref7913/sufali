@@ -1,168 +1,98 @@
-/* ===== طرح سنتی - بهبود یافته ===== */
-/* 1. پس‌زمینه پارچه‌ای */
-body {
-  background-color: #f9f3e9;
-  background-image: 
-    linear-gradient(rgba(210, 180, 140, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(210, 180, 140, 0.3) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-/* 2. کارت‌های محصول */
-.product-card {
+/* پارالاکس */
+.parallax {
+  background: url('https://images.unsplash.com/photo-1586448900401-87f0b7faa3d6') center/cover fixed;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  border: 1px solid #d4af37;
-  background: linear-gradient(to bottom, #f8f4f0, #efeae6);
-}
-
-.product-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0,5 C20,10 30,0 50,5 S80,0 100,5" fill="none" stroke="%23daa520" stroke-width="0.8"/></svg>') repeat-x;
-  opacity: 0.5;
-}
-
-.product-card img {
-  filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-bottom: 2px solid #d4af37;
-}
-
-.product-card:hover img {
-  transform: scale(1.07);
-}
-
-/* 3. دکمه‌های طلایی */
-.btn {
-  background: linear-gradient(to right, #daa520, #b8860b);
-  color: #fff !important;
-  border: none;
-  padding: 12px 28px;
-  border-radius: 30px;
-  position: relative;
-  overflow: hidden;
-  font-weight: 700;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(218, 165, 32, 0.4);
-}
-
-.btn::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(to bottom right, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
-  transform: rotate(30deg);
-  transition: all 0.5s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(218, 165, 32, 0.5);
-}
-
-.btn:hover::after {
-  transform: rotate(30deg) translate(10%, 10%);
-}
-
-.btn-outline {
-  background: transparent;
-  border: 2px solid #daa520;
-  color: #daa520 !important;
-  box-shadow: none;
-}
-
-.btn-outline:hover {
-  background: linear-gradient(to right, #daa520, #b8860b);
-  color: #fff !important;
-}
-
-/* 4. حاشیه‌های سنتی */
-.section-title::after {
-  height: 4px;
-  background: linear-gradient(to right, #daa520, #b8860b);
-  border-radius: 10px;
-}
-
-/* 5. افکت‌های اضافی برای اصالت */
-.hero::after {
-  background: linear-gradient(45deg, rgba(93, 64, 55, 0.6), rgba(141, 110, 99, 0.4));
+  margin: 3rem 0;
 }
 
 .parallax::before {
-  background: linear-gradient(45deg, rgba(93, 64, 55, 0.7), rgba(141, 110, 99, 0.5));
-}
-
-/* 6. بهبود ناوبری */
-.main-nav a {
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  transition: all 0.4s;
-}
-
-.main-nav a:hover {
-  background: rgba(212, 175, 55, 0.2);
-  border-color: #d4af37;
-}
-
-/* 7. تایپوگرافی سنتی */
-body {
-  font-family: 'Vazirmatn', serif;
-}
-
-.section-title {
-  font-family: 'Vazirmatn', serif;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/* 8. بهبود کارت‌های نظرات */
-.testimonial-card {
-  border: 1px solid #d4af37;
-  background: linear-gradient(to bottom, #fcf9f5, #f7f2ec);
-  position: relative;
-  overflow: hidden;
-}
-
-.testimonial-card::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 5px;
-  background: linear-gradient(to right, #daa520, #b8860b);
+  height: 100%;
+  background: rgba(93, 64, 55, 0.4);
 }
 
-/* 9. افکت‌های تعاملی */
+.parallax-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+/* خبرنامه */
+.newsletter {
+  background: #5D4037;
+  color: white;
+  padding: 3rem 0;
+  text-align: center;
+  margin: 4rem 0;
+}
+
+.newsletter-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 30px;
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+/* بهبود منوی موبایل */
+@media (max-width: 768px) {
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .main-nav a {
+    display: block;
+    margin: 8px 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .parallax {
+    height: 300px;
+    background-attachment: scroll;
+  }
+}
+
+/* دسته‌بندی محصولات */
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
 .category-btn {
-  border: 1px solid #daa520;
-  background: #f8f4f0;
+  background: white;
+  border: 1px solid #8D6E63;
+  color: #8D6E63;
+  padding: 8px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .category-btn.active, .category-btn:hover {
-  background: linear-gradient(to right, #daa520, #b8860b);
-  color: #fff;
-  border-color: #b8860b;
-}
-
-/* 10. بهبود فوتر */
-footer {
-  background: linear-gradient(to bottom, #5D4037, #3E2723);
-  border-top: 3px solid #d4af37;
-}
-
-/* 11. سایه‌های سنتی */
-.product-card, .testimonial-card, .blog-card {
-  box-shadow: 
-    0 5px 15px rgba(0, 0, 0, 0.08),
-    0 0 10px rgba(218, 165, 32, 0.1);
+  background: #8D6E63;
+  color: white;
 }
