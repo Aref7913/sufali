@@ -4,68 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>هنر سفال | فروشگاه سفالگری دست‌ساز</title>
-    <!-- بهینه‌سازی سئو -->
     <meta name="description" content="فروشگاه تخصصی سفال‌های دست‌ساز ایرانی با کیفیت ممتاز">
     <meta name="keywords" content="سفال, هنر سنتی, صنایع دستی, کوزه سفالی">
-    <!-- فونت فارسی -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #8D6E63;
-            --secondary: #5D4037;
-            --accent: #FFECB3;
-            --text: #4E342E;
-            --bg: #FAF5F0;
+            --clay: #8D6E63;
+            --dark-clay: #5D4037;
+            --gold: #D4AF37;
+            --cream: #EFEBE9;
+            --text: #3E2723;
+            --light-clay: #BCAAA4;
             --discount: #d32f2f;
         }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: all 0.3s ease-in-out;
         }
+        
         body {
             font-family: 'Vazirmatn', sans-serif;
-            background: var(--bg);
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(239,235,233,0.8) 0%, rgba(255,255,255,1) 100%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M30,50 Q50,30 70,50 T90,50" fill="none" stroke="%238D6E63" stroke-width="0.5" opacity="0.2"/></svg>') repeat;
             color: var(--text);
             line-height: 1.8;
         }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
+        
+        /* هدر و منو */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--dark-clay), var(--clay));
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
+        
         .logo {
             font-size: 2rem;
-            color: var(--accent);
+            color: var(--gold);
             text-align: center;
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        nav {
-            background: var(--secondary);
+        
+        .main-nav {
+            background: var(--dark-clay);
             padding: 1rem 0;
-            text-align: center;
         }
-        nav a {
-            color: var(--accent);
-            text-decoration: none;
+        
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .main-nav a {
+            color: var(--cream);
             padding: 0.8rem 1.5rem;
+            text-decoration: none;
             margin: 0 5px;
             border-radius: 30px;
-            transition: all 0.3s;
             font-weight: 500;
         }
-        nav a:hover {
+        
+        .main-nav a:hover {
             background: rgba(0,0,0,0.2);
+            color: var(--gold);
         }
+        
+        /* بخش اصلی */
         .hero {
             background: url('https://images.unsplash.com/photo-1570824104453-ceaf22b7e59a') center/cover;
             height: 70vh;
@@ -75,6 +94,7 @@
             text-align: center;
             position: relative;
         }
+        
         .hero::after {
             content: "";
             position: absolute;
@@ -84,6 +104,7 @@
             height: 100%;
             background: rgba(0,0,0,0.3);
         }
+        
         .hero-content {
             position: relative;
             z-index: 1;
@@ -91,47 +112,77 @@
             max-width: 800px;
             padding: 2rem;
         }
+        
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
+        
+        /* دکمه‌ها */
         .btn {
             display: inline-block;
-            background: var(--accent);
-            color: var(--secondary) !important;
+            background: linear-gradient(135deg, var(--gold), #B8860B);
+            color: var(--dark-clay) !important;
             padding: 12px 30px;
             border-radius: 30px;
             font-weight: 700;
             margin-top: 1.5rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s;
             border: none;
             cursor: pointer;
             font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 60%);
+            transform: rotate(30deg);
+        }
+        
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #B8860B, var(--gold));
         }
+        
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--accent);
-            color: var(--accent) !important;
+            border: 2px solid var(--gold);
+            color: var(--gold) !important;
         }
+        
+        .btn-outline:hover {
+            background: var(--gold) !important;
+            color: var(--dark-clay) !important;
+        }
+        
+        /* بخش محصولات */
+        #products {
+            padding: 4rem 0;
+        }
+        
         .section-title {
             text-align: center;
             margin-bottom: 2rem;
             font-size: 2rem;
-            color: var(--secondary);
+            color: var(--dark-clay);
             position: relative;
         }
+        
         .section-title::after {
             content: "";
             display: block;
             width: 100px;
             height: 3px;
-            background: var(--primary);
+            background: var(--clay);
             margin: 10px auto;
             border-radius: 3px;
         }
@@ -144,33 +195,52 @@
             gap: 10px;
             margin-bottom: 2rem;
         }
+        
         .category-btn {
             background: white;
-            border: 1px solid var(--primary);
-            color: var(--primary);
+            border: 1px solid var(--clay);
+            color: var(--clay);
             padding: 8px 20px;
             border-radius: 30px;
             cursor: pointer;
             transition: all 0.3s;
         }
+        
         .category-btn.active, .category-btn:hover {
-            background: var(--primary);
+            background: var(--clay);
             color: white;
         }
         
+        /* کارت محصولات */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
         }
+        
         .product-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
+            box-shadow: 
+                0 3px 6px rgba(0,0,0,0.1),
+                0 3px 6px rgba(93, 64, 55, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
+            border: 1px solid var(--cream);
         }
+        
+        .product-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"><path d="M0,5 C20,10 30,0 50,5 S80,0 100,5" fill="none" stroke="%23D4AF37" stroke-width="0.5"/></svg>') repeat-x;
+            opacity: 0.7;
+        }
+        
         .discount-badge {
             position: absolute;
             top: 15px;
@@ -182,48 +252,90 @@
             font-size: 0.9rem;
             z-index: 2;
         }
+        
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+            box-shadow: 
+                0 7px 14px rgba(0,0,0,0.1),
+                0 5px 5px rgba(93, 64, 55, 0.1);
         }
+        
         .product-image {
             height: 220px;
             overflow: hidden;
             position: relative;
         }
+        
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
+            filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.2));
         }
+        
         .product-card:hover .product-image img {
             transform: scale(1.05);
         }
+        
         .product-info {
             padding: 1.5rem;
         }
+        
         .product-title {
             font-size: 1.3rem;
-            color: var(--secondary);
+            color: var(--dark-clay);
             margin-bottom: 0.5rem;
         }
+        
         .price {
-            color: var(--primary);
+            color: var(--clay);
             font-weight: 700;
             font-size: 1.2rem;
             margin: 1rem 0;
         }
+        
         .old-price {
             text-decoration: line-through;
             color: #999;
             font-size: 0.9rem;
             margin-left: 10px;
         }
+        
         .rating {
             color: #FFD700;
             margin: 0.5rem 0;
             font-size: 1.2rem;
+        }
+        
+        /* بخش پارالاکس */
+        .parallax {
+            background: url('https://images.unsplash.com/photo-1586448900401-87f0b7faa3d6') center/cover fixed;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .parallax::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(93, 64, 55, 0.4);
+        }
+        
+        .parallax-content {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 80%;
         }
         
         /* بخش نظرات مشتریان */
@@ -232,23 +344,27 @@
             padding: 4rem 0;
             margin: 4rem 0;
         }
+        
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
+        
         .testimonial-card {
             background: white;
             padding: 1.5rem;
             border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
+        
         .testimonial-header {
             display: flex;
             align-items: center;
             margin-bottom: 1rem;
         }
+        
         .testimonial-avatar {
             width: 50px;
             height: 50px;
@@ -256,6 +372,7 @@
             object-fit: cover;
             margin-left: 15px;
         }
+        
         .testimonial-product {
             width: 60px;
             height: 60px;
@@ -263,47 +380,98 @@
             object-fit: cover;
         }
         
-        /* بخش بلاگ و داستان‌ها */
+        /* بخش بلاگ */
         .blog-section {
             padding: 4rem 0;
         }
+        
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 2rem;
         }
+        
         .blog-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
+        
         .blog-content {
             padding: 1.5rem;
         }
         
-        /* بخش درباره ما */
-        .about-section {
+        /* فرم تماس */
+        .contact-section {
             padding: 4rem 0;
-            background: #f9f9f9;
-        }
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-        .about-image {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-        }
-        .about-image img {
-            width: 100%;
-            display: block;
+            background: #f5f5f5;
         }
         
-        /* نمادهای اعتماد */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--light-clay);
+            border-radius: 5px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .error-msg {
+            color: var(--discount);
+            display: none;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        /* خبرنامه */
+        .newsletter {
+            background: var(--dark-clay);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin: 4rem 0;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        /* فوتر */
+        footer {
+            background: var(--dark-clay);
+            color: var(--cream);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
         .trust-badges {
             display: flex;
             justify-content: center;
@@ -311,6 +479,7 @@
             flex-wrap: wrap;
             margin: 2rem 0;
         }
+        
         .trust-badge {
             background: white;
             border-radius: 8px;
@@ -320,44 +489,49 @@
             gap: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
+        
         .trust-badge i {
             font-size: 1.5rem;
-            color: var(--primary);
+            color: var(--clay);
         }
         
-        /* فرم تماس */
-        .contact-section {
-            padding: 4rem 0;
-            background: #f5f5f5;
+        /* چت آنلاین */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 300px;
+            background: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            z-index: 1000;
         }
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
+        
+        .chat-header {
+            background: var(--clay);
+            color: white;
             padding: 12px;
-            border: 1px solid #BCAAA4;
-            border-radius: 5px;
-            font-family: 'Vazirmatn', sans-serif;
-            font-size: 1rem;
-        }
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        .error-msg {
-            color: #d32f2f;
-            display: none;
-            font-size: 0.9rem;
-            margin-top: 5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        /* سفارشی‌سازی محصول */
+        .chat-body {
+            display: none;
+            padding: 15px;
+        }
+        
+        .chat-body input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        /* مودال سفارشی‌سازی */
         .customization-modal {
             display: none;
             position: fixed;
@@ -370,6 +544,7 @@
             justify-content: center;
             align-items: center;
         }
+        
         .customization-content {
             background: white;
             width: 90%;
@@ -378,120 +553,66 @@
             padding: 2rem;
             position: relative;
         }
+        
         .close-modal {
             position: absolute;
             top: 15px;
             left: 15px;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--primary);
+            color: var(--clay);
         }
         
-        /* خبرنامه */
-        .newsletter {
-            background: var(--secondary);
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            margin: 4rem 0;
-        }
-        .newsletter-form {
-            max-width: 500px;
-            margin: 0 auto;
-            display: flex;
-            gap: 10px;
-        }
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            border-radius: 30px;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        
-        footer {
-            background: var(--secondary);
-            color: var(--accent);
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
-        }
-        .chat-widget {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            width: 300px;
-            background: white;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            z-index: 1000;
-        }
-        .chat-header {
-            background: var(--primary);
-            color: white;
-            padding: 12px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .chat-body {
-            display: none;
-            padding: 15px;
-        }
-        .chat-body input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        .gallery {
-            padding: 3rem 0;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .gallery-grid img {
-            width: 100%;
-            border-radius: 8px;
-            transition: transform 0.3s;
-            cursor: pointer;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-        }
-        .gallery-grid img:hover {
-            transform: scale(1.05);
-        }
+        /* نسخه موبایل */
         @media (max-width: 768px) {
-            nav a {
+            .main-nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .main-nav a {
                 display: block;
                 margin: 8px 0;
             }
+            
             .hero h1 {
                 font-size: 2rem;
             }
+            
             .section-title {
                 font-size: 1.8rem;
             }
+            
             .chat-widget {
                 width: 250px;
                 left: 10px;
                 bottom: 10px;
             }
+            
             .about-content {
                 grid-template-columns: 1fr;
             }
+            
             .newsletter-form {
                 flex-direction: column;
             }
+            
+            .parallax {
+                height: 300px;
+                background-attachment: scroll;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .products-grid, .testimonials-grid, .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                height: 50vh;
+            }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- هدر -->
@@ -502,14 +623,16 @@
     </header>
 
     <!-- منو -->
-    <nav>
+    <nav class="main-nav">
         <div class="container">
-            <a href="#home">خانه</a>
-            <a href="#products">محصولات</a>
-            <a href="#about">درباره ما</a>
-            <a href="#blog">بلاگ</a>
-            <a href="#testimonials">نظرات</a>
-            <a href="#contact">تماس</a>
+            <ul>
+                <li><a href="#home">خانه</a></li>
+                <li><a href="#products">محصولات</a></li>
+                <li><a href="#about">درباره ما</a></li>
+                <li><a href="#blog">بلاگ</a></li>
+                <li><a href="#testimonials">نظرات</a></li>
+                <li><a href="#contact">تماس</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -588,32 +711,56 @@
         </div>
     </section>
 
-    <!-- بخش درباره ما -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2 class="section-title">درباره هنر سفال</h2>
-            <div class="about-content">
-                <div>
-                    <h3>هنر اصیل ایرانی با قدمت 7000 ساله</h3>
-                    <p>کارگاه هنر سفال با هدف احیای هنر سفالگری سنتی ایران تأسیس شد. ما با بهره‌گیری از استادکاران باسابقه و استفاده از خاک مرغوب ، محصولاتی منحصر به فرد خلق می‌کنیم که هر کدام روایتی از تاریخ و فرهنگ غنی ایران زمین است.</p>
-                    <p>تمام محصولات ما به صورت کاملاً دست‌ساز و با تکنیک‌های سنتی مانند چرخ‌کاری، کنده‌کاری و نقاشی زیررنگ تولید می‌شوند. ما به کیفیت مواد اولیه و دوام محصولاتمان افتخار می‌کنیم.</p>
-                    <button class="btn" style="margin-top: 20px">داستان کامل ما</button>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1586448900401-87f0b7faa3d6" alt="کارگاه سفالگری">
-                </div>
-            </div>
+    <!-- بخش پارالاکس -->
+    <section class="parallax">
+        <div class="parallax-content">
+            <h2>هنر سفالگری ایرانی</h2>
+            <p>با 7000 سال سابقه درخشان، سفالگری یکی از اصیل‌ترین هنرهای ایرانی است</p>
+            <button class="btn">بیشتر بخوانید</button>
         </div>
     </section>
 
-    <!-- گالری محصولات -->
-    <section class="gallery container">
-        <h2 class="section-title">گالری آثار</h2>
-        <div class="gallery-grid">
-            <img src="https://images.unsplash.com/photo-1585109647336-9f779b83d9e4" alt="اثر سفالی ۱">
-            <img src="https://images.unsplash.com/photo-1593288942460-e0f1c7e0a8d8" alt="اثر سفالی ۲">
-            <img src="https://images.unsplash.com/photo-1595433707808-224b871d3b4f" alt="اثر سفالی ۳">
-            <img src="https://images.unsplash.com/photo-1595433707808-224b871d3b4f" alt="اثر سفالی ۴">
+    <!-- بخش نظرات مشتریان -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">نظرات مشتریان ما</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="فاطمه محمدی" class="testimonial-avatar">
+                        <div>
+                            <h3>فاطمه محمدی</h3>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"کوزه سفالی که خریدم واقعاً عالی بود! کیفیت ساخت فوق‌العاده داره و بعد از ۶ ماه استفاده هنوز مثل روز اولش میمونه."</p>
+                    <img src="https://images.unsplash.com/photo-1585109647336-9f779b83d9e4" alt="محصول خریداری شده" class="testimonial-product">
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="علی رضایی" class="testimonial-avatar">
+                        <div>
+                            <h3>علی رضایی</h3>
+                            <div class="rating">★★★★☆</div>
+                        </div>
+                    </div>
+                    <p>"سفارش مجسمه سفالی با طرح اختصاصی دادم. کار خیلی دقیق و باکیفیت انجام شد. فقط زمان تحویل کمی طول کشید که قابل قبوله برای کار دست‌ساز."</p>
+                    <img src="https://images.unsplash.com/photo-1593288942460-e0f1c7e0a8d8" alt="محصول خریداری شده" class="testimonial-product">
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="نرگس کریمی" class="testimonial-avatar">
+                        <div>
+                            <h3>نرگس کریمی</h3>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p>"مجموعه قاب‌های سنتی رو برای هدیه تولد مادرم خریدم. عاشقش شدن! بسته‌بندی خیلی شیک و لوکسی داشت که ارزش هدیه رو دوبرابر کرد."</p>
+                    <img src="https://images.unsplash.com/photo-1595433707808-224b871d3b4f" alt="محصول خریداری شده" class="testimonial-product">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -656,65 +803,6 @@
         </div>
     </section>
 
-    <!-- بخش نظرات مشتریان -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title">نظرات مشتریان ما</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="فاطمه محمدی" class="testimonial-avatar">
-                        <div>
-                            <h3>فاطمه محمدی</h3>
-                            <div class="rating">★★★★★</div>
-                        </div>
-                    </div>
-                    <p>"کوزه سفالی که خریدم واقعاً عالی بود! کیفیت ساخت فوق‌العاده داره و بعد از ۶ ماه استفاده هنوز مثل روز اولش میمونه."</p>
-                    <img src="https://images.unsplash.com/photo-1585109647336-9f779b83d9e4" alt="محصول خریداری شده" class="testimonial-product">
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="علی رضایی" class="testimonial-avatar">
-                        <div>
-                            <h3>علی رضایی</h3>
-                            <div class="rating">★★★★☆</div>
-                        </div>
-                    </div>
-                    <p>"سفارش مجسمه سفالی با طرح اختصاصی دادم. کار خیلی دقیق و باکیفیت انجام شد. فقط زمان تحویل کمی طول کشید که قابل قبوله برای کار دست‌ساز."</p>
-                    <img src="https://images.unsplash.com/photo-1593288942460-e0f1c7e0a8d8" alt="محصول خریداری شده" class="testimonial-product">
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="نرگس کریمی" class="testimonial-avatar">
-                        <div>
-            </div>
-        </div>
-    </section>
-
-    <!-- نمادهای اعتماد -->
-    <div class="container">
-        <div class="trust-badges">
-            <div class="trust-badge">
-                <i class="fas fa-shield-alt"></i>
-                <span>پرداخت امن</span>
-            </div>
-            <div class="trust-badge">
-                <i class="fas fa-truck"></i>
-                <span>تحویل سریع</span>
-            </div>
-            <div class="trust-badge">
-                <i class="fas fa-undo"></i>
-                <span>تضمین بازگشت</span>
-            </div>
-            <div class="trust-badge">
-                <i class="fas fa-award"></i>
-                <span>اصالت کالا</span>
-            </div>
-        </div>
-    </div>
-
     <!-- خبرنامه -->
     <section class="newsletter">
         <div class="container">
@@ -753,9 +841,28 @@
     <!-- فوتر -->
     <footer>
         <div class="container">
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>پرداخت امن</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-truck"></i>
+                    <span>تحویل سریع</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-undo"></i>
+                    <span>تضمین بازگشت</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-award"></i>
+                    <span>اصالت کالا</span>
+                </div>
+            </div>
+            
             <p>© ۱۴۰۳ هنر سفال - تمام حقوق محفوظ است</p>
-            <p>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸ | sofali.accessory@gmail.com  </p>
-            <p>مهاباد ، پلاک ۱۲۳۴</p>
+            <p>تلفن: ۰۲۱-۱۲۳۴۵۶۷۸ | ایمیل: info@honaresofal.ir</p>
+            <p>تهران، خیابان ولیعصر، پلاک ۱۲۳۴</p>
         </div>
     </footer>
 
@@ -956,4 +1063,4 @@
         });
     </script>
 </body>
-</html>
+            </html>
