@@ -7,11 +7,9 @@
     <!-- بهینه‌سازی سئو -->
     <meta name="description" content="فروشگاه تخصصی سفال‌های دست‌ساز ایرانی با کیفیت ممتاز">
     <meta name="keywords" content="سفال, هنر سنتی, صنایع دستی, کوزه سفالی">
-    <link rel="canonical" href="https://aref7913.github.io/sufali">
     <!-- فونت فارسی -->
     <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/font.css" rel="stylesheet">
     <style>
-        /* === استایل‌های کامل === */
         :root {
             --primary: #8D6E63;
             --secondary: #5D4037;
@@ -124,7 +122,7 @@
             font-size: 2rem;
             color: var(--secondary);
             position: relative;
-            }
+        }
         .section-title::after {
             content: "";
             display: block;
@@ -379,7 +377,8 @@
             </form>
         </div>
     </section>
-  <!-- فوتر -->
+
+    <!-- فوتر -->
     <footer>
         <div class="container">
             <p>© ۱۴۰۳ هنر سفال - تمام حقوق محفوظ است</p>
@@ -460,7 +459,7 @@
             const chatBody = document.querySelector('.chat-body');
             const toggleIcon = document.querySelector('.toggle-icon');
             
-            if (chatBody.style.display === 'block') {
+            if (window.getComputedStyle(chatBody).display === 'block') {
                 chatBody.style.display = 'none';
                 toggleIcon.textContent = '+';
             } else {
@@ -474,7 +473,7 @@
             const message = input.value.trim();
             
             if (message) {
-                alert(پیام شما ارسال شد: "${message}"\nپاسخ به زودی ارسال می‌شود);
+                alert(`پیام شما ارسال شد: "${message}"\nپاسخ به زودی ارسال می‌شود`);
                 input.value = '';
             }
         }
@@ -483,9 +482,9 @@
         document.querySelectorAll('.product-card .btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const productName = this.closest('.product-card').querySelector('.product-title').textContent;
-                alert(«${productName}» به سبد خرید اضافه شد!);
+                alert(`«${productName}» به سبد خرید اضافه شد!`);
             });
         });
     </script>
 </body>
-</html>  
+</html>
